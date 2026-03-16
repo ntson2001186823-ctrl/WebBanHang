@@ -1,0 +1,177 @@
+:root {
+    --main-color: #e60023;
+    --text-color: #333;
+    --bg-color: #ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:var(--bg-color);
+    color:var(--text-color);
+}
+
+.container{
+    width:1200px;
+    margin:auto;
+}
+
+/* BUTTON CHUNG */
+.btn{
+    background:var(--main-color);
+    color:white;
+    border:none;
+    padding:8px 16px;
+    cursor:pointer;
+}
+
+/* HEADER */
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 40px;
+background:#f5f5f5;
+border-bottom:2px solid red;
+}
+
+.logo h2{
+color:#333;
+}
+
+/* MENU */
+.menu ul{
+display:flex;
+list-style:none;
+gap:15px;
+margin:0;
+padding:0;
+}
+
+.menu a{
+display:block;
+padding:8px 18px;
+text-decoration:none;
+color:#333;
+border:2px solid red;
+border-radius:6px;
+font-weight:500;
+transition:0.3s;
+}
+
+.menu a:hover{
+background:red;
+color:white;
+transform:translateY(-2px);
+}
+
+/* SEARCH */
+.header-right{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.search-box{
+display:flex;
+}
+
+.search-box input{
+padding:8px 10px;
+border:1px solid #ccc;
+border-radius:5px 0 0 5px;
+outline:none;
+}
+
+.search-box button{
+padding:8px 15px;
+border:none;
+background:red;
+color:white;
+border-radius:0 5px 5px 0;
+cursor:pointer;
+}
+
+/* CART */
+.cart-btn{
+background:red;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+background:#0c1b2a;
+color:#cbd5e1;
+padding:60px 0;
+font-family:Arial;
+}
+
+.container{
+width:1200px;
+margin:auto;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:40px;
+}
+
+.footer-col h3{
+color:white;
+margin-bottom:20px;
+border-left:3px solid red;
+padding-left:10px;
+}
+
+.footer-col ul{
+list-style:none;
+padding:0;
+}
+
+.footer-col ul li{
+margin-bottom:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.footer-col ul li:hover{
+color:red;
+}
+
+.logo{
+display:flex;
+align-items:center;
+margin-bottom:15px;
+}
+
+.logo-icon{
+background:red;
+color:white;
+width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:8px;
+font-weight:bold;
+margin-right:10px;
+}
+
+.logo span{
+color:red;
+}
+
+.footer p{
+margin-bottom:10px;
+font-size:14px;
+}
