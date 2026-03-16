@@ -1,0 +1,272 @@
+/**
+ * BannerSlider.tsx — Slider trang chủ (js/home.js)
+ * Tự động chạy 5.5s, có prev/next, dots, progress bar
+ */
+import { useState, useEffect, useCallback, useRef } from "react";
+
+/* ─ Dữ liệu slides ─ */
+const SLIDES = [
+  {
+    id: 1,
+    colorClass: "slide--1",
+    accent: "#ff4d6d",
+    blobColor1: "#e31837",
+    blobColor2: "#ff6b35",
+    badge: "🔥 SIÊU SALE THÁNG 3",
+    discount: "17%",
+    title: "iPhone 16\nPro Max",
+    subtitle: "Titan. Mạnh mẽ. Đột phá.",
+    desc: "Camera ProRes 48MP · Chip A18 Pro · Pin cả ngày làm việc · Dynamic Island thế hệ mới",
+    priceNew: "29.990.000đ",
+    priceOld: "35.990.000đ",
+    priceSave: "Tiết kiệm 6 triệu",
+    features: [
+      { icon: "🚀", text: "Giao hỏa tốc 2H" },
+      { icon: "🎁", text: "Quà tặng 500K" },
+      { icon: "🛡️", text: "BH 12 tháng" },
+    ],
+    cta1: "Mua ngay",
+    cta2: "Trả góp 0%",
+    tag: "HOT",
+    imgBadge: "🔥 Chỉ còn hôm nay!",
+    image: "https://images.unsplash.com/photo-1760900051041-90417b9c110e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700",
+  },
+  {
+    id: 2,
+    colorClass: "slide--2",
+    accent: "#34d399",
+    blobColor1: "#059669",
+    blobColor2: "#10b981",
+    badge: "💻 BEST SELLER",
+    discount: "15%",
+    title: "MacBook Air\nM3 15\"",
+    subtitle: "Mỏng nhẹ. Hiệu năng thần thánh.",
+    desc: "Chip M3 mạnh hơn 60% · 18 giờ pin · Màn hình Liquid Retina 15.3\" · Fanless siêu êm",
+    priceNew: "27.990.000đ",
+    priceOld: "32.990.000đ",
+    priceSave: "Tiết kiệm 5 triệu",
+    features: [
+      { icon: "✅", text: "Hàng chính hãng" },
+      { icon: "💳", text: "Trả góp 0%" },
+      { icon: "🎒", text: "Kèm túi đựng" },
+    ],
+    cta1: "Mua ngay",
+    cta2: "So sánh model",
+    tag: "SALE",
+    imgBadge: "✨ Số lượng có hạn",
+    image: "https://images.unsplash.com/photo-1642943038577-eb4a59549766?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700",
+  },
+  {
+    id: 3,
+    colorClass: "slide--3",
+    accent: "#818cf8",
+    blobColor1: "#4f46e5",
+    blobColor2: "#7c3aed",
+    badge: "⚡ FLASH DEAL",
+    discount: "19%",
+    title: "ASUS ROG\nGaming Laptop",
+    subtitle: "Chinh phục mọi trận chiến.",
+    desc: "RTX 4090 · Màn hình 360Hz · RAM DDR5 32GB · Tản nhiệt Tri-Fan siêu khủng · RGB Aura",
+    priceNew: "34.990.000đ",
+    priceOld: "42.990.000đ",
+    priceSave: "Tiết kiệm 8 triệu",
+    features: [
+      { icon: "🎮", text: "RTX 4090 Ti" },
+      { icon: "⚡", text: "360Hz IPS" },
+      { icon: "🖥️", text: "RAM 32GB DDR5" },
+    ],
+    cta1: "Khám phá",
+    cta2: "Xem tất cả",
+    tag: "NEW",
+    imgBadge: "🎮 Gaming Edition",
+    image: "https://images.unsplash.com/photo-1645802106095-765b7e86f5bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700",
+  },
+  {
+    id: 4,
+    colorClass: "slide--4",
+    accent: "#38bdf8",
+    blobColor1: "#0284c7",
+    blobColor2: "#0ea5e9",
+    badge: "📱 MỚI RA MẮT",
+    discount: "17%",
+    title: "iPad Pro M4\n12.9 inch",
+    subtitle: "Mạnh như máy tính. Mỏng như giấy.",
+    desc: "Chip M4 siêu mạnh · Màn hình OLED ProMotion 120Hz · Apple Pencil Pro · Magic Keyboard",
+    priceNew: "28.990.000đ",
+    priceOld: "34.990.000đ",
+    priceSave: "Tiết kiệm 6 triệu",
+    features: [
+      { icon: "✨", text: "OLED ProMotion" },
+      { icon: "🔋", text: "Pin 10h" },
+      { icon: "📶", text: "Wi-Fi 6E" },
+    ],
+    cta1: "Đặt hàng ngay",
+    cta2: "Tìm hiểu thêm",
+    tag: "NEW",
+    imgBadge: "🆕 Vừa ra mắt",
+    image: "https://images.unsplash.com/photo-1759820941220-fed6a1010146?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=700",
+  },
+];
+
+const DURATION = 5500; // ms mỗi slide
+
+export function BannerSlider() {
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [progWidth, setProgWidth] = useState(0);
+  const progTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const animTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  /* ─ Chuyển slide ─ */
+  const goTo = useCallback((idx: number) => {
+    setCurrent(idx);
+    setProgWidth(0);
+  }, []);
+
+  const prev = useCallback(() => goTo((current - 1 + SLIDES.length) % SLIDES.length), [current, goTo]);
+  const next = useCallback(() => goTo((current + 1) % SLIDES.length), [current, goTo]);
+
+  /* ─ Auto-play ─ */
+  useEffect(() => {
+    if (isPaused) return;
+    animTimerRef.current = setInterval(next, DURATION);
+    return () => { if (animTimerRef.current) clearInterval(animTimerRef.current); };
+  }, [next, isPaused]);
+
+  /* ─ Progress bar ─ */
+  useEffect(() => {
+    setProgWidth(0);
+    if (isPaused) return;
+    if (progTimerRef.current) clearTimeout(progTimerRef.current);
+    progTimerRef.current = setTimeout(() => setProgWidth(100), 60);
+    return () => { if (progTimerRef.current) clearTimeout(progTimerRef.current); };
+  }, [current, isPaused]);
+
+  const slide = SLIDES[current];
+  const pad = (n: number) => String(n + 1).padStart(2, "0");
+
+  return (
+    <section className="slider-section">
+      <div className="slider-wrap"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        {/* ── Track ── */}
+        <div
+          className="slider-track"
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {SLIDES.map((s, i) => (
+            <div key={s.id} className={`slide ${s.colorClass}${i === current ? " is-active" : ""}`}>
+              {/* BG blobs */}
+              <div className="slide__bg-blob slide__bg-blob--1" style={{ background: s.blobColor1 }} />
+              <div className="slide__bg-blob slide__bg-blob--2" style={{ background: s.blobColor2 }} />
+              <div className="slide__grid" />
+
+              <div className="container">
+                <div className="slide__inner">
+
+                  {/* ─ Content ─ */}
+                  <div className="slide__content">
+                    {/* Badges */}
+                    <div className="slide__badges">
+                      <span className="slide__badge-main">{s.badge}</span>
+                      <span className="slide__badge-discount">GIẢM {s.discount}</span>
+                    </div>
+
+                    {/* Title */}
+                    <h1 className="slide__title">
+                      {s.title.split("\n").map((line, j) => (
+                        <span key={j} style={{ display: "block" }}>{line}</span>
+                      ))}
+                    </h1>
+
+                    {/* Subtitle */}
+                    <p className="slide__subtitle" style={{ color: s.accent }}>{s.subtitle}</p>
+
+                    {/* Desc */}
+                    <p className="slide__desc">{s.desc}</p>
+
+                    {/* Price */}
+                    <div className="slide__price-row">
+                      <span className="slide__price-new">{s.priceNew}</span>
+                      <span className="slide__price-old">{s.priceOld}</span>
+                      <span className="slide__price-save" style={{ color: s.accent }}>{s.priceSave}</span>
+                    </div>
+
+                    {/* Features */}
+                    <div className="slide__features">
+                      {s.features.map((f, j) => (
+                        <span key={j} className="slide__feature">
+                          <span className="slide__feature-icon">{f.icon}</span>
+                          {f.text}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* CTAs */}
+                    <div className="slide__ctas">
+                      <a href="#" className="btn btn-primary btn-lg btn-pulse">{s.cta1}</a>
+                      <a href="#" className="btn btn-outline-white btn-lg">{s.cta2}</a>
+                    </div>
+                  </div>
+
+                  {/* ─ Image ─ */}
+                  <div className="slide__image-wrap">
+                    {/* Glow */}
+                    <div className="slide__img-glow" style={{ background: s.accent }} />
+                    {/* Product image */}
+                    <img
+                      src={s.image}
+                      alt={s.title.replace("\n", " ")}
+                      className="slide__img"
+                    />
+                    {/* Tag */}
+                    <div className="slide__img-tag">{s.tag}</div>
+                    {/* Bottom badge */}
+                    <div className="slide__img-badge">{s.imgBadge}</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── Arrows ── */}
+        <button className="slider-arrow slider-arrow--prev" onClick={prev} aria-label="Trước">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button className="slider-arrow slider-arrow--next" onClick={next} aria-label="Sau">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        {/* ── Dots ── */}
+        <div className="slider-dots">
+          {SLIDES.map((_, i) => (
+            <button
+              key={i}
+              className={`slider-dot${i === current ? " active" : ""}`}
+              onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* ── Counter ── */}
+        <div className="slider-counter">{pad(current)} / {pad(SLIDES.length - 1)}</div>
+
+        {/* ── Progress bar ── */}
+        <div className="slider-progress">
+          <div
+            className="slider-progress__fill"
+            style={{
+              width: `${progWidth}%`,
+              transitionDuration: isPaused ? "0ms" : `${DURATION}ms`,
+            }}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
