@@ -11,34 +11,28 @@
 
 <!-- HEADER -->
 <header class="header">
+    <div class="container header-content"> <div class="logo">
+            <h2>Tech<span>Store</span></h2>
+        </div>
 
-<div class="logo">
-<h2>TechStore</h2>
-</div>
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">Trang chủ</a></li>
+                <li><a href="#">Sản phẩm</a></li>
+                <li><a href="#">Laptop</a></li>
+                <li><a href="#">Điện thoại</a></li>
+                <li><a href="#">Liên hệ</a></li>
+            </ul>
+        </nav>
 
-<nav class="menu">
-<ul>
-<li><a href="#">Trang chủ</a></li>
-<li><a href="#">Sản phẩm</a></li>
-<li><a href="#">Laptop</a></li>
-<li><a href="#">Điện thoại</a></li>
-<li><a href="#">Liên hệ</a></li>
-</ul>
-</nav>
-
-<div class="header-right">
-<div class="search-box">
-<input type="text" placeholder="Tìm sản phẩm...">
-<button>Tìm kiếm</button>
-</div>
-
-
-<button class="cart-btn">
-🛒 Giỏ hàng
-</button>
-
-</div>
-
+        <div class="header-right">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm sản phẩm...">
+                <button>Tìm kiếm</button>
+            </div>
+            <a href="cart.html" class="cart-btn">🛒 Giỏ hàng (0)</a>
+        </div>
+    </div>
 </header>
 
 
@@ -60,46 +54,42 @@
 
 <!-- DANH MỤC NỔI BẬT -->
 <section class="products container">
+    <h2>Sản phẩm nổi bật</h2>
 
-<h2>Sản phẩm nổi bật</h2>
+    <div class="product-list">
+        <div class="product-card">
+            <img src="images/laptop.jpg">
+            <h3>Laptop Gaming</h3>
+            <p class="price">20.000.000đ</p>
+            <button class="btn" onclick="cartSystem.addItem({ id: 1, name: 'Laptop Gaming', price: 20000000, img: 'images/laptop.jpg' })">Mua ngay</button>
+        </div>
 
-<div class="product-list">
+        <div class="product-card">
+            <img src="images/phone.png">
+            <h3>iPhone 17</h3>
+            <p class="price">25.000.000đ</p>
+            <button class="btn" onclick="cartSystem.addItem({ id: 2, name: 'iPhone 17', price: 25000000, img: 'images/phone.png' })">Mua ngay</button>
+        </div>
 
-<div class="product-card">
-<img src="images/laptop.jpg">
-<h3>Laptop Gaming</h3>
-<p class="price">20.000.000đ</p>
-<button class="btn">Mua ngay</button>
-</div>
+        <div class="product-card">
+            <img src="images/headphone.png">
+            <h3>Tai nghe Sony</h3>
+            <p class="price">2.000.000đ</p>
+            <button class="btn" onclick="cartSystem.addItem({ id: 3, name: 'Tai nghe Sony', price: 2000000, img: 'images/headphone.png' })">Mua ngay</button>
+        </div>
 
-<div class="product-card">
-<img src="images/phone.png">
-<h3>iPhone 17</h3>
-<p class="price">25.000.000đ</p>
-<button class="btn">Mua ngay</button>
-</div>
-
-<div class="product-card">
-<img src="images/headphone.png">
-<h3>Tai nghe Sony</h3>
-<p class="price">2.000.000đ</p>
-<button class="btn">Mua ngay</button>
-</div>
-
-<div class="product-card">
-<img src="images/mouse.png">
-<h3>Chuột Gaming</h3>
-<p class="price">500.000đ</p>
-<button class="btn">Mua ngay</button>
-</div>
-
-</div>
-
+        <div class="product-card">
+            <img src="images/mouse.png">
+            <h3>Chuột Gaming</h3>
+            <p class="price">500.000đ</p>
+            <button class="btn" onclick="cartSystem.addItem({ id: 4, name: 'Chuột Gaming', price: 500000, img: 'images/mouse.png' })">Mua ngay</button>
+        </div>
+    </div>
 </section>
 
 
 <!-- FOOTER -->
-<footer class="footer">
+< class="footer">
 <div class="container footer-grid">
 
 <div class="footer-col">
@@ -144,25 +134,26 @@ cung cấp sản phẩm chính hãng với giá tốt nhất.
 
 
 <div class="footer-col">
-<h3>HỖ TRỢ KHÁCH HÀNG</h3>
-<ul>
-<li>Hướng dẫn mua hàng</li>
-<li>Tra cứu đơn hàng</li>
-<li>Thanh toán trả góp</li>
-<li>Câu hỏi thường gặp</li>
-<li>Trung tâm bảo hành</li>
-</ul>
-</div>
+            <h3>HỖ TRỢ KHÁCH HÀNG</h3>
+            <ul>
+                <li>Hướng dẫn mua hàng</li>
+                <li>Tra cứu đơn hàng</li>
+                <li>Thanh toán trả góp</li>
+                <li>Câu hỏi thường gặp</li>
+                <li>Trung tâm bảo hành</li>
+            </ul>
+        </div>
 
-</div>
-</footer>
+    </div> <div class="container">
+        <hr style="border: 0; border-top: 1px solid #334155; margin: 30px 0;">
+        <p class="copyright" style="text-align: center; padding-bottom: 20px; color: #94a3b8;">
+            © 2026 TechStore - Dự án của Nhóm (Lợi, Trường, Sơn)
+        </p>
+    </div>
 
-    <p class="copyright">
-        © 2026 TechStore
-    </p>
-</footer>
+</footer> <script src="js/home.js"></script>
 
-<script src="js/home.js"></script>
+<script src="js/storage.js"></script>
 
 </body>
 </html>
