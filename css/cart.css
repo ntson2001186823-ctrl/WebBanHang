@@ -1,18 +1,17 @@
-/* CART LAYOUT NÂNG CẤP */
 .cart-layout {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr; /* Tỉ lệ cân đối hơn */
-    gap: 40px;
-    padding: 40px 0;
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 60px; 
+    padding: 60px 0;
     align-items: start;
+    font-family: 'Inter', sans-serif; 
 }
 
-/* Bảng danh sách sản phẩm */
-.cart-items-section {
-    background: #fff;
-    padding: 20px;
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
+.cart-items-section, .summary-box {
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .cart-table {
@@ -22,110 +21,226 @@
 
 .cart-table th {
     text-align: left;
-    padding: 15px;
-    color: var(--gray-color);
-    font-size: 14px;
+    padding: 0 0 15px 0;
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
     text-transform: uppercase;
-    border-bottom: 1px solid var(--border-color);
+    letter-spacing: 1px;
+    border-bottom: 1px solid #000;
 }
 
 .cart-table td {
-    padding: 20px 15px;
-    border-bottom: 1px solid var(--border-color);
+    padding: 30px 0;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
 }
 
-.cart-table img {
-    width: 80px;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
+.cart-table tbody tr {
+    transition: background-color 0.3s ease;
 }
 
-/* Sidebar Tóm tắt đơn hàng */
+.cart-table tbody tr:hover {
+    background-color: #fafafa; 
+}
+
+.cart-table td img {
+    width: 100px !important;
+    height: 100px !important;
+    max-width: 100px !important;
+    object-fit: cover !important;
+    border-radius: 4px;
+    border: none !important;
+    display: block !important;
+    margin: 0;
+}
+
+.product-info {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.product-name:hover {
+    color: #666;
+}
+
+.product-category {
+    font-size: 13px;
+    color: #999;
+}
+
+.qty-controls {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100px !important;
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+}
+
+.qty-btn {
+    width: 30px !important;
+    height: 30px !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    color: #333 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s;
+    padding: 0 !important;
+}
+
+.qty-btn:hover {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.qty-input {
+    width: 40px !important;
+    height: 30px !important;
+    border: none !important;
+    border-left: 1px solid #ddd !important;
+    border-right: 1px solid #ddd !important;
+    text-align: center !important;
+    font-weight: 500 !important;
+    font-family: inherit !important;
+    color: #000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none;
+}
+
+.remove-btn {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.remove-btn:hover {
+    color: #000; 
+}
+
 .summary-box {
-    background: var(--light-gray);
-    padding: 30px;
-    border-radius: 20px;
+    padding: 0 0 0 40px !important;
+    border-left: 1px solid #eee !important;
     position: sticky;
-    top: 100px; /* Ghim lại khi cuộn trang */
-    border: 1px solid var(--border-color);
+    top: 100px;
 }
 
 .summary-box h2 {
-    font-size: 20px;
-    margin-bottom: 25px;
-    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    color: #000;
 }
 
 .summary-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
-    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 15px;
+    color: #666;
 }
 
 .total-row {
-    margin-top: 20px;
+    margin-top: 30px;
     padding-top: 20px;
-    border-top: 2px dashed var(--border-color);
+    border-top: 1px solid #000;
     font-size: 1.2rem;
-    color: var(--main-color);
+    color: #000;
+    font-weight: 700;
 }
 
-/* Nút Thanh toán xịn xò */
 .checkout-btn {
     width: 100%;
-    background: var(--text-color);
+    background: #000;
     color: #fff;
-    padding: 15px;
+    padding: 18px;
     border: none;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: 700;
+    border-radius: 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s;
+    margin-top: 30px;
+    transition: opacity 0.3s ease;
 }
 
 .checkout-btn:hover {
-    background: var(--main-color);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(230, 0, 35, 0.2);
+    opacity: 0.8; 
 }
 
-/* Trạng thái trống */
-.empty-cart {
-    text-align: center;
-    padding: 50px 0;
+.footer {
+    display: none !important;
 }
 
-.empty-cart img {
-    width: 150px;
-    opacity: 0.5;
-    margin-bottom: 20px;
+@media (max-width: 768px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 30px 0;
+    }
+    
+    .summary-box {
+        padding-left: 0 !important;
+        border-left: none !important;
+        border-top: 1px solid #eee !important;
+        padding-top: 40px !important;
+        position: static;
+    }
+
+    .cart-table td img {
+        margin-left: auto; 
+    }
+    
+    .qty-controls {
+        margin-left: auto; 
+    }
 }
 
-.qty-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--light-gray);
-    width: fit-content;
-    padding: 5px;
-    border-radius: 8px;
+
+.hidden {
+    display: none !important;
 }
 
-.qty-btn {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background: #fff;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
+/* 2. Ép chiều rộng cho từng cột để không bị chạy chữ */
+.cart-table th:nth-child(1) { width: 15%; } /* Cột Ảnh */
+.cart-table th:nth-child(2) { width: 35%; } /* Cột Tên & Danh mục */
+.cart-table th:nth-child(3) { width: 15%; } /* Cột Đơn giá */
+.cart-table th:nth-child(4) { width: 18%; } /* Cột Số lượng (cho rộng tí để chứa nút) */
+.cart-table th:nth-child(5) { width: 12%; } /* Cột Thành tiền */
+.cart-table th:nth-child(6) { width: 5%; text-align: right; } /* Cột Xóa */
+
+/* 3. Căn lại nội dung bên trong bảng cho đều nhau */
+.cart-table td {
+    vertical-align: middle !important; /* Ép tất cả nằm giữa theo chiều dọc */
 }
 
-.qty-btn:hover {
-    background: var(--main-color);
-    color: #fff;
+/* 4. Căn phải cho nút Xóa để nó sát lề */
+.cart-table td:last-child {
+    text-align: right;
+    padding-right: 10px;
 }

@@ -151,9 +151,30 @@ cung cấp sản phẩm chính hãng với giá tốt nhất.
         </p>
     </div>
 
-</footer> <script src="js/home.js"></script>
-
+</footer> 
 <script src="js/storage.js"></script>
+<script src="js/home.js"></script>
+
+<script>
+    // Hàm cập nhật số lượng hiển thị trên icon giỏ hàng
+    function updateCartBadge() {
+        const count = window.cartSystem.getTotalCount();
+        const cartBtn = document.querySelector('.cart-btn');
+        if (cartBtn) {
+            cartBtn.innerHTML = `🛒 Giỏ hàng (${count})`;
+        }
+    }
+
+    // Ghi đè lại hàm addItem để vừa thêm hàng vừa update badge ngay lập tức
+    const originalAddItem = window.cartSystem.addItem;
+    window.cartSystem.addItem = function(product) {
+        originalAddItem(product);
+        updateCartBadge();
+    };
+
+    // Chạy lần đầu khi load trang chủ
+    document.addEventListener('DOMContentLoaded', updateCartBadge);
+</script>
 
 </body>
 </html>

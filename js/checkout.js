@@ -1,113 +1,87 @@
-import CartStorage from './storage.js';
-
-// Các Regex dùng để kiểm tra định dạng
-const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// Regex số điện thoại VN: Bắt đầu bằng 0 hoặc +84, tiếp theo là 3,5,7,8,9 và đúng 8 số cuối
-const REGEX_PHONE_VN = /^(0|\+84)(3|5|7|8|9)[0-9]{8}$/; 
-
-/**
- * Mô phỏng API gọi lên Backend để tạo đơn hàng
- * @param {Object} orderData Dữ liệu khách hàng và giỏ hàng
- * @returns {Promise} Trả về kết quả sau 2 giây
- */
-async function processOrder(orderData) {
-    console.log('Đang gửi dữ liệu lên server...', orderData);
-    
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            // Giả lập tỷ lệ thành công 95%
-            const isSuccess = Math.random() > 0.05;
-            if (isSuccess) {
-                resolve({ status: 200, message: 'Đặt hàng thành công!', orderId: 'ORD-' + Date.now() });
-            } else {
-                reject({ status: 500, message: 'Lỗi hệ thống, vui lòng thử lại sau.' });
-            }
-        }, 2000);
-    });
-}
-
-/**
- * Xử lý validation form trước khi submit
- */
-function handleCheckoutFormSubmit(event) {
-    event.preventDefault(); // Ngăn trình duyệt reload trang
-
-    const form = event.target;
-    const fullName = form.querySelector('#fullName').value.trim();
-    const email = form.querySelector('#email').value.trim();
-    const phone = form.querySelector('#phone').value.trim();
-    const address = form.querySelector('#address').value.trim();
-
-    // 1. Validation Frontend (Client-side)
-    if (!fullName || !address) {
-        alert('Vui lòng nhập đầy đủ Họ tên và Địa chỉ giao hàng.');
-        return;
-    }
-
-    if (!REGEX_EMAIL.test(email)) {
-        alert('Email không đúng định dạng. Vui lòng kiểm tra lại.');
-        return;
-    }
-
-    if (!REGEX_PHONE_VN.test(phone)) {
-        alert('Số điện thoại không hợp lệ. Vui lòng nhập số điện thoại Việt Nam (VD: 0912345678).');
-        return;
-    }
-
-    const cart = CartStorage.get();
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Kiểm tra giỏ hàng, nếu trống thì đá về trang chủ
+    const cart = window.cartSystem.getCart();
     if (cart.length === 0) {
-        alert('Giỏ hàng của bạn đang trống. Vui lòng chọn sản phẩm trước khi thanh toán.');
-        window.location.href = 'cart.html';
+        alert('Chưa có sản phẩm nào để thanh toán!');
+        window.location.href = 'index.html';
         return;
     }
 
-    // 2. Gom dữ liệu gửi đi
-    const orderData = {
-        customer: { fullName, email, phone, address },
-        items: cart,
-        total: calculateTotalTemp(cart) // Giả định bạn có hàm tính tổng tiền
+    const formatMoney = (amount) => amount.toLocaleString('vi-VN') + 'đ';
+
+    // 2. Render danh sách sản phẩm ra Sidebar bên phải
+    const renderCheckoutItems = () => {
+        const itemsContainer = document.getElementById('checkout-items');
+        let html = '';
+        let subtotal = 0;
+
+        cart.forEach(item => {
+            subtotal += (item.price * item.quantity);
+            html += `
+                <div class="checkout-item">
+                    <div class="item-info">
+                        <div class="item-img">
+                            <img src="${item.img}" alt="${item.name}">
+                            <span class="item-qty">${item.quantity}</span>
+                        </div>
+                        <span class="item-name">${item.name}</span>
+                    </div>
+                    <span class="item-price">${formatMoney(item.price * item.quantity)}</span>
+                </div>
+            `;
+        });
+
+        itemsContainer.innerHTML = html;
+        document.getElementById('checkout-subtotal').innerText = formatMoney(subtotal);
+        document.getElementById('checkout-total').innerText = formatMoney(subtotal); // Bỏ phí vận chuyển nếu là khóa học online
     };
 
-    // Khóa nút submit để tránh user click nhiều lần (Double Submit)
-    const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Đang xử lý...';
+    renderCheckoutItems();
 
-    // 3. Gọi hàm xử lý đơn hàng (Async/Await)
-    submitData(orderData, submitBtn);
-}
-
-/**
- * Tách riêng logic Async/Await để code sạch sẽ hơn
- */
-async function submitData(orderData, submitBtn) {
-    try {
-        const response = await processOrder(orderData);
-        
-        // Thành công: Xóa giỏ hàng và chuyển hướng
-        alert(`${response.message} Mã đơn: ${response.orderId}`);
-        CartStorage.clear();
-        window.location.href = 'thank-you.html'; // Chuyển hướng sang trang cảm ơn
-
-    } catch (error) {
-        // Thất bại: Báo lỗi và mở khóa nút submit
-        alert(error.message);
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Hoàn tất đặt hàng';
-        console.error('Checkout Error:', error);
-    }
-}
-
-// Hàm hỗ trợ tính tổng tiền tạm thời (nếu cần gửi kèm)
-function calculateTotalTemp(cart) {
-    // Trong thực tế, Backend sẽ tự tính lại tổng tiền dựa trên ID sản phẩm để bảo mật
-    return cart.reduce((total, item) => total + (item.quantity * 100000), 0); 
-}
-
-// Lắng nghe sự kiện submit form
-document.addEventListener('DOMContentLoaded', () => {
+    // 3. Xử lý khi Submit Form Đặt Hàng
     const checkoutForm = document.getElementById('checkout-form');
-    if (checkoutForm) {
-        checkoutForm.addEventListener('submit', handleCheckoutFormSubmit);
-    }
+    checkoutForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const orderId = 'STH' + Date.now().toString().slice(-6); // Tạo mã đơn hàng ngẫu nhiên
+    const bankId = "MB"; // Thay bằng mã ngân hàng của bạn (MB, VCB, ICB...)
+    const accountNo = "02406051010"; // !!! THAY SỐ TÀI KHOẢN CỦA SƠN VÀO ĐÂY !!!
+    const accountName = "NGUYEN THE SON"; // !!! THAY TÊN CỦA SƠN (KHÔNG DẤU) !!!
+
+    // Link tạo mã QR tự động từ VietQR
+    const qrUrl = `https://img.vietqr.io/image/${bankId}-${accountNo}-compact2.png?amount=${totalAmount}&addInfo=Thanh toan don hang ${orderId}&accountName=${accountName}`;
+
+    // Hiển thị Popup
+    document.getElementById('qr-image').src = qrUrl;
+    document.getElementById('pay-amount').innerText = totalAmount.toLocaleString('vi-VN') + 'đ';
+    document.getElementById('pay-content').innerText = `Thanh toan don hang ${orderId}`;
+    document.getElementById('payment-modal').classList.remove('hidden');
 });
+
+// Xử lý khi nhấn "Tôi đã chuyển khoản"
+document.getElementById('confirm-paid-btn').addEventListener('click', () => {
+    alert('Hệ thống đang kiểm tra giao dịch của bạn (thường mất 1-3 phút). Cảm ơn bạn!');
+    window.cartSystem.clearCart();
+    window.location.href = 'index.html';
+});
+
+// Đóng modal
+document.getElementById('close-modal').addEventListener('click', () => {
+    document.getElementById('payment-modal').classList.add('hidden');
+});
+
+        // Ở đây thực tế sẽ dùng fetch() hoặc axios() gửi data lên Server (Database)
+        console.log("Đơn hàng gửi đi:", { customer: customerInfo, items: cart });
+
+        // Giả lập xử lý API mất 1 giây
+        const btn = document.querySelector('.btn-place-order');
+        btn.innerText = "ĐANG XỬ LÝ...";
+        btn.disabled = true;
+
+        setTimeout(() => {
+            alert(`Cảm ơn ${customerInfo.name}! Đơn hàng của bạn đã được ghi nhận.`);
+            window.cartSystem.clearCart(); // Đặt xong thì xóa giỏ hàng
+            window.location.href = 'index.html'; // Chuyển về trang chủ (hoặc trang success.html tùy bạn)
+        }, 1000);
+    });

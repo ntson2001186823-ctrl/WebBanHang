@@ -36,70 +36,55 @@
     </header>
 
     <main class="container cart-layout">
-        
-        <section class="cart-items-section">
-            <h2 class="cart-title">Giỏ hàng của bạn</h2>
+    <section class="cart-items-section">
+        <h2 class="cart-title">Giỏ hàng</h2> <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Chi tiết</th> <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="cart-body">
+                </tbody>
+        </table>
+
+        <div id="empty-cart-msg" class="empty-cart hidden">
+            <div class="empty-content">
+                <p>Giỏ hàng của bạn đang trống.</p>
+                <a href="index.html" class="btn-link">Tiếp tục mua sắm →</a>
+            </div>
+        </div>
+    </section>
+
+    <aside class="cart-sidebar">
+        <div class="summary-box">
+            <h2>Tóm tắt đơn hàng</h2>
+            <div class="summary-row">
+                <span>Tạm tính</span>
+                <span id="subtotal">0đ</span>
+            </div>
+            <div class="summary-row">
+                <span>Phí vận chuyển</span>
+                <span>30.000đ</span>
+            </div>
             
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th>Sản phẩm</th>
-                        <th>Tên</th>
-                        <th>Đơn giá</th>
-                        <th>Số lượng</th>
-                        <th>Thành tiền</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="cart-body">
-                    </tbody>
-            </table>
-
-            <div id="empty-cart-msg" class="empty-cart hidden">
-                <div class="empty-content">
-                    <img src="https://cdn-icons-png.flaticon.com/512/11329/11329061.png" alt="Giỏ hàng trống" width="150">
-                    <p>Giỏ hàng của bạn đang trống trải quá!</p>
-                    <a href="index.html" class="btn">Quay lại mua sắm ngay</a>
-                </div>
+            <div class="summary-row total-row">
+                <span>Tổng cộng</span>
+                <span id="final-total">0đ</span>
             </div>
-        </section>
-
-        <aside class="cart-sidebar">
-            <div class="summary-box">
-                <h3>Tóm tắt đơn hàng</h3>
-                <div class="summary-row">
-                    <span>Tổng tiền hàng:</span>
-                    <strong id="subtotal">0đ</strong>
-                </div>
-                <div class="summary-row">
-                    <span>Phí vận chuyển:</span>
-                    <strong>30.000đ</strong>
-                </div>
-                <hr class="summary-divider">
-                <div class="summary-row total-row">
-                    <span>Tổng cộng:</span>
-                    <strong id="final-total" class="highlight-price">0đ</strong>
-                </div>
-                <button id="checkout-btn" class="btn checkout-btn">THANH TOÁN NGAY</button>
-                
-                <p class="note">* Phí vận chuyển áp dụng toàn quốc</p>
+            
+            <button id="checkout-btn" class="checkout-btn">THANH TOÁN NGAY</button>
+            
+            <div class="payment-methods">
+                <p class="note">* Giá đã bao gồm thuế VAT (nếu có)</p>
             </div>
-        </aside>
+        </div>
+    </aside>
+</main>
 
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <div class="logo">
-                    <div class="logo-icon">T</div>
-                    <h2>TECH<span>SHOP</span></h2>
-                </div>
-                <p>TechShop là hệ thống bán lẻ điện tử uy tín hàng đầu Việt Nam.</p>
-            </div>
-            </div>
-        <p class="copyright">© 2026 TechStore</p>
-    </footer>
 
     <script src="js/storage.js"></script>
     <script src="js/cart-logic.js"></script>
