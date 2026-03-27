@@ -3,36 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Sản phẩm</title>
-<link rel="stylesheet" href="css/products.css">
+
+<style>
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+img { width: 100%; }
+.price { color: red; }
+</style>
+
 </head>
 
 <body>
 
 <h1>Danh sách sản phẩm</h1>
 
-<div class="product-list" id="productList"></div>
+<div class="product-list" id="product-list"></div>
 
 <script src="js/data.js"></script>
-
-<script>
-const list = document.getElementById("productList");
-
-products.forEach(p => {
-    list.innerHTML += `
-        <div class="product-card">
-            <img src="${p.img}">
-            <h3>${p.name}</h3>
-            <p>${p.price.toLocaleString()}đ</p>
-            <button onclick="viewDetail(${p.id})">Xem chi tiết</button>
-        </div>
-    `;
-});
-
-function viewDetail(id){
-    localStorage.setItem("productId", id);
-    window.location.href = "detail.html";
-}
-</script>
+<script src="js/products.js"></script>
 
 </body>
 </html>
