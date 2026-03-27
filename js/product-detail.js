@@ -1,17 +1,24 @@
-const id = localStorage.getItem("productId");
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
 
+// giả sử data.js có mảng products
 const product = products.find(p => p.id == id);
 
-const div = document.getElementById("detail");
+const detailDiv = document.getElementById("detail");
 
-if(product){
-    div.innerHTML = `
-        <h1>${product.name}</h1>
-        <img src="${product.img}" width="300">
-        <p>Giá: ${product.price.toLocaleString()}đ</p>
-        <p>${product.desc}</p>
-        <a href="products.html">← Quay lại</a>
+if (product) {
+    detailDiv.innerHTML = `
+        <div class="product-detail">
+            <img src="${product.img}">
+            <h2>${product.name}</h2>
+            <p class="price">${product.price.toLocaleString()}đ</p>
+            <button onclick="addToCart()">Thêm vào giỏ</button>
+        </div>
     `;
-}else{
-    div.innerHTML = "<p>Không tìm thấy sản phẩm</p>";
+} else {
+    detailDiv.innerHTML = "<p>Không tìm thấy sản phẩm</p>";
+}
+
+function addToCart() {
+    alert("Đã thêm vào giỏ!");
 }
