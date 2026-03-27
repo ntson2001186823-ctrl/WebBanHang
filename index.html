@@ -18,9 +18,9 @@
         <nav class="menu">
             <ul>
                 <li><a href="index.html">Trang chủ</a></li>
-                <li><a href="#">Sản phẩm</a></li>
-                <li><a href="#">Laptop</a></li>
-                <li><a href="#">Điện thoại</a></li>
+                <li><a href="products.html">Sản phẩm</a></li>
+                <li><a href="products.html">Laptop</a></li>
+                <li><a href="products.html">Điện thoại</a></li>
                 <li><a href="#">Liên hệ</a></li>
             </ul>
         </nav>
@@ -59,28 +59,36 @@
     <div class="product-list">
         <div class="product-card">
             <img src="images/laptop.jpg">
-            <h3>Laptop Gaming</h3>
+            <h3>
+                <a href="detail.html?id=1">Laptop Gaming</a>
+            </h3>
             <p class="price">20.000.000đ</p>
             <button class="btn" onclick="cartSystem.addItem({ id: 1, name: 'Laptop Gaming', price: 20000000, img: 'images/laptop.jpg' })">Mua ngay</button>
         </div>
 
         <div class="product-card">
             <img src="images/phone.png">
-            <h3>iPhone 17</h3>
+            <h3>
+                <a href="detail.html?id=2">iPhone 17</a>
+            </h3>
             <p class="price">25.000.000đ</p>
             <button class="btn" onclick="cartSystem.addItem({ id: 2, name: 'iPhone 17', price: 25000000, img: 'images/phone.png' })">Mua ngay</button>
         </div>
 
         <div class="product-card">
             <img src="images/headphone.png">
-            <h3>Tai nghe Sony</h3>
+            <h3>
+                <a href="detail.html?id=3">Tai Nghe Sony</a>
+            </h3>
             <p class="price">2.000.000đ</p>
             <button class="btn" onclick="cartSystem.addItem({ id: 3, name: 'Tai nghe Sony', price: 2000000, img: 'images/headphone.png' })">Mua ngay</button>
         </div>
 
         <div class="product-card">
             <img src="images/mouse.png">
-            <h3>Chuột Gaming</h3>
+            <h3>
+                <a href="detail.html?id=4">Chuột Gaming</a>
+            </h3>
             <p class="price">500.000đ</p>
             <button class="btn" onclick="cartSystem.addItem({ id: 4, name: 'Chuột Gaming', price: 500000, img: 'images/mouse.png' })">Mua ngay</button>
         </div>
@@ -152,6 +160,7 @@ cung cấp sản phẩm chính hãng với giá tốt nhất.
     </div>
 
 </footer> 
+<script src="js/data.js"></script>
 <script src="js/storage.js"></script>
 <script src="js/home.js"></script>
 
