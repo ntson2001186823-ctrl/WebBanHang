@@ -1,5 +1,5 @@
 window.cartSystem = (() => {
-    const CART_KEY = 'smart_study_hub_cart';
+    const CART_KEY = 'techstore_cart';
 
     // Lấy dữ liệu giỏ hàng từ LocalStorage
     const getCart = () => {

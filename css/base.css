@@ -1,237 +1,347 @@
+/* ==========================================================================
+   1. HỆ THỐNG BIẾN & TOKENS (DESIGN SYSTEM)
+   ========================================================================== */
 :root {
-    --main-color: #e60023;
-    --main-hover: #c4001d; 
-    --text-color: #0f172a; /* Xanh đen sang trọng */
-    --gray-color: #475569; /* Xám thanh lịch */
-    --light-gray: #f8fafc;
-    --border-color: #f1f5f9; /* Viền siêu mỏng, nhẹ */
-    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Màu sắc thương hiệu */
+    --main-color: #d70018;       /* Đỏ CellphoneS */
+    --dark-red: #b00012;         /* Đỏ đậm cho Topbar */
+    --text-color: #333333;       /* Chữ nội dung */
+    --text-muted: #64748b;       /* Chữ phụ, ghi chú */
+    --bg-body: #f4f6f8;          /* Nền xám cực nhẹ giúp nổi bật Card */
+    --border-soft: #f1f5f9;      /* Viền siêu mảnh, sang trọng */
+    
+    /* Đổ bóng (Soft Shadows - Đa tầng để khối nổi lửng) */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
+    --shadow-dropdown: 0 15px 35px -5px rgba(0,0,0,0.1), 0 10px 15px -5px rgba(0,0,0,0.04);
+    
+    /* Chuyển động (Êm ái, phản hồi nhanh) */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    -webkit-font-smoothing: antialiased; /* Giúp chữ nét hơn trên MacBook Retina */
+/* ==========================================================================
+   2. TỐI ƯU TYPOGRAPHY CHO MACBOOK PRO M2 (RETINA)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background: #fff;
+body {
+    /* Hệ thống Font Apple & Hệ điều hành hiện đại */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-color);
+    background: var(--bg-body);
     line-height: 1.5;
+    
+    /* Ép xung hiển thị nét chữ trên màn hình độ phân giải cao */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.container{
+.container {
     max-width: 1200px;
-    width: 92%;
+    width: 95%;
     margin: auto;
 }
 
-
-.header {
-    width: 100%;
-    background: #d70018; /* Đỏ đặc trưng của CellphoneS */
+/* ==========================================================================
+   3. TÁI CẤU TRÚC HEADER & TÌM KIẾM
+   ========================================================================== */
+.header-wrapper {
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Đổ bóng đậm hơn trên nền đỏ */
+    width: 100%;
 }
 
-.header-content {
+.top-bar {
+    background: #af0012;
+    height: 32px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    height: 64px; /* Thu hẹp chiều cao cho gọn và hiện đại */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.top-bar-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    width: 100%;
     gap: 20px;
 }
 
-/* LOGO TRẮNG TINH KHÔI */
-.logo h2 {
-    font-size: 22px;
-    font-weight: 800;
-    color: #ffffff; /* Ép logo sang màu trắng */
+.top-left-marquee {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffd6d6;
+    font-size: 12px;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+.top-left-marquee i {
+    color: #ffde59;
+}
+
+.top-right-links {
+    display: flex;
+    gap: 12px;
+}
+
+.top-right-links a {
+    color: #ffd6d6;
+    text-decoration: none;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
     white-space: nowrap;
+    transition: 0.3s;
+}
+
+.top-right-links a:hover {
+    color: #fff;
+}
+
+.header {
+    background: #d70018;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr auto;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.logo h2 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: lowercase;
+    letter-spacing: -0.5px;
 }
 
 .logo span {
-    color: #ffffff; /* Toàn bộ logo màu trắng trên nền đỏ mới sang */
+    font-size: 24px;
 }
 
-/* MENU - CÁC TAB TRẮNG MỜ (GLASSMORPHISM) */
-.menu ul {
+.btn-header, .action-item {
+    background: transparent !important;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
     display: flex;
-    list-style: none;
+    align-items: center;
     gap: 8px;
-    margin: 0;
-    padding: 0;
+    height: 42px;
+    transition: background 0.3s ease;
 }
 
-.menu a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 13px;
-    padding: 8px 12px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.1); /* Nền trắng mờ nhẹ */
-    transition: 0.3s;
-    white-space: nowrap;
+.btn-header:hover, .action-item:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
-.menu a:hover {
-    background: rgba(255, 255, 255, 0.25); /* Sáng lên khi rà chuột */
-    color: #ffffff;
+.btn-header span, .action-item span {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 1.3;
 }
 
-/* NHÓM BÊN PHẢI (SEARCH & CART) */
-.header-right {
+.search-wrapper {
+    flex: 1;
     display: flex;
-    align-items: center;
-    gap: 12px;
-    flex: 1; /* Cho phép vùng này giãn nở */
-    justify-content: flex-end;
+    justify-content: center;
+    padding: 0 5px;
 }
 
-/* Ô Search tinh chỉnh lại */
 .search-box {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    border-radius: 10px;
     display: flex;
     align-items: center;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 2px 5px;
-    width: 100%;
-    max-width: 400px; /* Độ rộng tối đa của ô search */
-    transition: 0.3s;
+    padding: 0 15px;
+    height: 38px;
 }
 
 .search-box input {
     border: none;
-    background: transparent;
-    padding: 8px 12px;
     outline: none;
     width: 100%;
     font-size: 14px;
+    font-weight: 500;
+    padding-left: 5px;
     color: #333;
 }
 
-.search-box button {
-    background: #d70018; /* Nút đỏ trên nền trắng của ô search */
-    color: white;
-    border: none;
-    padding: 6px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 13px;
-}
-
-/* NÚT GIỎ HÀNG KIỂU MINIMALISM */
-.cart-btn {
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #ffffff;
-    padding: 8px 15px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
+.header-right {
     display: flex;
-    align-items: center;
     gap: 5px;
-    transition: 0.3s;
+    align-items: center;
 }
 
-.cart-btn:hover {
-    background: #ffffff;
-    color: #d70018; 
-}
-
-
-.footer {
-    background: #020617;
-    color: #94a3b8;
-    padding: 80px 0 40px 0;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 50px;
-}
-
-.footer-col h3 {
-    color: #fff;
-    margin-bottom: 25px;
-    font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.footer-col ul li {
-    margin-bottom: 12px;
-    font-size: 14px;
-    transition: var(--transition);
-    opacity: 0.8;
-}
-
-.footer-col ul li:hover {
-    opacity: 1;
-    color: var(--main-color);
-    padding-left: 8px;
-}
-
-.copyright {
-    text-align: center;
-    border-top: 1px solid #1e293b;
-    margin-top: 50px;
-    padding-top: 30px;
-    font-size: 13px;
-    opacity: 0.6;
-}
-
-/* --- TABLES --- */
-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px; 
-}
-
-table th {
-    padding: 15px;
-    color: var(--gray-color);
-    font-weight: 600;
-    font-size: 13px;
-    text-transform: uppercase;
-    text-align: left;
-}
-
-table td {
-    padding: 20px 15px;
-    background: #fff;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-table tr td:first-child { border-left: 1px solid var(--border-color); border-radius: 12px 0 0 12px; }
-table tr td:last-child { border-right: 1px solid var(--border-color); border-radius: 0 12px 12px 0; }
-
-/* --- ALERT --- */
-.alert-success {
-    position: fixed;
-    top: 30px;
-    right: 30px;
-    background: #059669;
+.cart-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    text-decoration: none;
     color: white;
-    padding: 16px 28px;
+}
+
+
+.cart-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-icon-wrapper i {
+    font-size: 22px;
+}
+
+
+.cart-icon-wrapper .badge {
+    position: absolute;
+    top: -8px;    
+    right: -8px;  
+    background: #fdf001; 
+    color: #d70018;      
+    font-size: 10px;
+    font-weight: 900;
+    min-width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1.5px solid #d70018; 
+    padding: 0 2px;
+}
+
+
+.cart-btn > span {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap; 
+}
+/* ==========================================================================
+   4. DROPDOWN CHUYÊN NGHIỆP & OVERLAY MỜ KÍNH
+   ========================================================================== */
+.dropdown-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px); /* Áp sát Header */
+    left: 0;
+    width: 260px;
+    background: #ffffff;
     border-radius: 12px;
-    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-    z-index: 9999;
+    border: 1px solid #eee; /* Viền mờ */
+    box-shadow: var(--shadow-dropdown); /* Bóng đổ đa tầng */
+    padding: 8px 0;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition-smooth);
+    z-index: 2001;
+}
+
+.dropdown-wrapper:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    padding: 10px 16px;
+    font-size: 13px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+.dropdown-menu li i { width: 20px; text-align: center; color: var(--text-muted); font-size: 16px; }
+.dropdown-menu li:hover { background: #f8fafc; color: var(--main-color); }
+.dropdown-menu li:hover i { color: var(--main-color); }
+
+/* Overlay Background với hiệu ứng mờ kính (Glassmorphism) */
+.overlay {
+    position: fixed;
+    top: 64px; /* Chỉ che phần dưới Header */
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px); /* Làm mờ nội dung bên dưới */
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 900;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+}
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ==========================================================================
+   5. HỆ THỐNG BADGE & ANIMATION
+   ========================================================================== */
+.cart-btn { position: relative; text-decoration: none; }
+
+/* Badge Vàng Tươi - Đỏ Đậm */
+.cart-btn .badge {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    background: #ffde59;
+    color: var(--main-color);
+    font-weight: 800;
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Animation Rung Giỏ Hàng (Lắc nhẹ theo trục Z) */
+@keyframes shakeCart {
+    0% { transform: rotate(0deg) scale(1); }
+    20% { transform: rotate(-10deg) scale(1.1); }
+    40% { transform: rotate(10deg) scale(1.1); }
+    60% { transform: rotate(-10deg) scale(1.1); }
+    80% { transform: rotate(10deg) scale(1.1); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+.cart-shake i {
+    animation: shakeCart 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    color: #ffde59; /* Chớp màu vàng rực khi thêm hàng */
 }
