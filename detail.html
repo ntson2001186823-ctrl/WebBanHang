@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<title>Chi tiết sản phẩm</title>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết sản phẩm | TechStore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <style>
+        .product-detail-container { max-width: 1200px; margin: 20px auto; padding: 0 15px; font-family: sans-serif; }
+        .breadcrumb { font-size: 13px; color: #707070; margin-bottom: 15px; }
+        .breadcrumb a { color: #d70018; text-decoration: none; }
+        
+        .product-header { border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; margin-bottom: 20px; }
+        .product-title { font-size: 20px; font-weight: bold; color: #333; margin: 5px 0; }
+        .product-rating { color: #ff9f00; font-size: 14px; }
 
+        .product-main { display: flex; gap: 30px; }
+        .product-left { flex: 1.2; position: relative; }
+        .product-right { flex: 1; }
+
+        .main-img-wrapper { border: 1px solid #f0f0f0; border-radius: 15px; padding: 20px; text-align: center; }
+        .main-img { max-width: 100%; height: auto; border-radius: 10px; }
+
+        .flash-sale-box { background: linear-gradient(90deg, #e91e63, #ff5722); border-radius: 10px; color: white; padding: 15px; margin-bottom: 20px; position: relative; }
+        .fs-price { font-size: 24px; font-weight: bold; margin-bottom: 10px; }
+        .fs-progress-bar { height: 15px; background: #fce4ec; border-radius: 10px; position: relative; overflow: hidden; margin-top: 10px; }
+        .fs-progress-fill { height: 100%; background: #ffeb3b; }
+
+        .option-group { margin-bottom: 20px; }
+        .option-title { font-weight: bold; margin-bottom: 10px; font-size: 15px; }
+        .option-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .option-item { border: 1px solid #ddd; padding: 8px; border-radius: 8px; text-align: center; cursor: pointer; font-size: 13px; }
+        .option-item.active { border-color: #d70018; color: #d70018; position: relative; }
+        .option-item.active::after { content: '✔'; position: absolute; top: -5px; right: -5px; background: #d70018; color: white; border-radius: 50%; width: 15px; height: 15px; font-size: 10px; line-height: 15px; }
+
+        .btn-buy-now { background: #d70018; color: white; border: none; width: 100%; padding: 15px; border-radius: 10px; font-weight: bold; font-size: 16px; cursor: pointer; text-transform: uppercase; }
+    </style>
+</head>
 <body>
 
-<div id="detail"></div>
+<div class="product-detail-container">
+    <div id="product-content">
+        </div>
+</div>
 
 <script src="js/data.js"></script>
 <script src="js/product-detail.js"></script>
