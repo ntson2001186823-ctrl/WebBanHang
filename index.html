@@ -33,42 +33,20 @@
     <div class="header">
         <div class="container header-content">
             <div class="logo">
-                <h2 onclick="location.href='index.html'">TechStore</h2>
+                <h2 onclick="location.href='index.html'" style="cursor:pointer">TechStore</h2>
             </div>
-
-            <button class="btn-header">
-                <i class="fas fa-bars"></i>
-                <span>Danh mục</span>
-            </button>
-
-            <button class="btn-header btn-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Xem giá tại<br><strong>Hồ Chí Minh</strong></span>
-            </button>
-
+            <button class="btn-header"><i class="fas fa-bars"></i><span>Danh mục</span></button>
             <div class="search-wrapper">
                 <div class="search-box">
                     <i class="fas fa-search"></i>
                     <input type="text" placeholder="Bạn muốn mua gì hôm nay?">
                 </div>
             </div>
-
             <div class="header-right">
-                <div class="action-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>Gọi mua hàng<br><strong>1800.2097</strong></span>
-                </div>
+                <div class="action-item"><i class="fas fa-phone-alt"></i><span>1800.2097</span></div>
                 <a href="#" class="cart-btn action-item">
-                <div class="cart-icon-wrapper">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                     <span class="badge">0</span>
-                </div>
-                    <span>Giỏ hàng</span>
+                    <i class="fa-solid fa-cart-shopping"></i><span class="badge">0</span><span>Giỏ hàng</span>
                 </a>
-                <div class="action-item">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Đăng nhập</span>
-                </div>
             </div>
         </div>
     </div>
@@ -76,139 +54,96 @@
 
 <main class="main-content">
     <section class="hero-section container">
-    <aside class="sidebar-menu">
-        <ul>
-            <li><a href="#"><i class="fas fa-mobile-alt"></i><span>Điện thoại, Tablet</span></a></li>
-            <li><a href="#"><i class="fas fa-laptop"></i><span>Laptop, Màn hình</span></a></li>
-            <li><a href="#"><i class="fas fa-headphones"></i><span>Âm thanh</span></a></li>
-            <li><a href="#"><i class="fas fa-clock"></i><span>Đồng hồ, Camera</span></a></li>
-            <li><a href="#"><i class="fas fa-plug"></i><span>Phụ kiện</span></a></li>
-            <li><a href="#"><i class="fas fa-microchip"></i><span>PC, Linh kiện</span></a></li>
-            <li><a href="#"><i class="fas fa-home"></i><span>Gia dụng, Tivi</span></a></li>
-            <li><a href="#"><i class="fas fa-sync-alt"></i><span>Thu cũ đổi mới</span></a></li>
-        </ul>
-    </aside>
-
-    <div class="hero-center" style="flex: 3; display: flex; flex-direction: column; gap: 10px; min-width: 0;">
-    <div class="slider-container" style="position: relative; overflow: hidden; border-radius: 12px; flex: 1;">
-        <div class="slider-track" style="display: flex; transition: transform 0.5s ease-in-out; height: 100%;">
-            <img src="images/banner-chinh.jpg" style="width: 100%; flex-shrink: 0; object-fit: cover;" alt="Banner 1">
-            <img src="images/banner-chinh1.jpg" style="width: 100%; flex-shrink: 0; object-fit: cover;" alt="Banner 2">
-            <img src="images/banner-chinh2.jpg" style="width: 100%; flex-shrink: 0; object-fit: cover;" alt="Banner 3">
-            <img src="images/banner-chinh3.jpg" style="width: 100%; flex-shrink: 0; object-fit: cover;" alt="Banner 4">
-        </div>
-
-        <button class="slider-btn prev" style="left: 10px;"><i class="fas fa-chevron-left"></i></button>
-        <button class="slider-btn next" style="right: 10px;"><i class="fas fa-chevron-right"></i></button>
-        
-        <div class="slider-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px;">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-        </div>
-    </div>
-
-    <div class="sub-slider-banners" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
-        <img src="images/sub1.jpg" style="width: 100%; border-radius: 8px; aspect-ratio: 3/1; object-fit: cover;" alt="Sub 1">
-        <img src="images/sub2.jpg" style="width: 100%; border-radius: 8px; aspect-ratio: 3/1; object-fit: cover;" alt="Sub 2">
-        <img src="images/sub3.jpg" style="width: 100%; border-radius: 8px; aspect-ratio: 3/1; object-fit: cover;" alt="Sub 3">
-    </div>
-</div>
-
-        <aside class="hero-right" style="display: flex; flex-direction: column; gap: 10px; flex: 1; height: 100%;">
-    
-    <div class="cps-user-box" style="border: 1px solid #d70018; border-radius: 12px; padding: 15px; background: white; cursor: pointer; transition: all 0.3s ease;">
-    
-    <div class="cps-user-header" style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
-        <i class="fas fa-user-circle" style="font-size: 36px; color: #d70018;"></i> <div style="text-align: left;">
-            <p style="font-size: 13px; font-weight: 600; color: #333; margin: 0; line-height: 1.4;">
-                Chào mừng bạn đến<br>với CellphoneS
-            </p>
-        </div>
-    </div>
-    
-
-    <div class="cps-user-actions" style="border-top: 1px solid #f0f0f0; padding-top: 10px; text-align: left;">
-        <div class="cps-user-links" style="font-size: 12px; color: #d70018; display: flex; align-items: center; gap: 5px;">
-            <span>Xem ưu đãi Smember</span>
-            <i class="fas fa-chevron-right" style="font-size: 9px; color: #d70018; transition: transform 0.2s ease;"></i>
-        </div>
-    </div>
-
-</div>
-
-    <div class="promo-list" style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
-        <div class="placeholder-box mini" style="flex: 1; border-radius: 12px;">
-            BANNER QUẢNG CÁO 1
-        </div>
-        <div class="placeholder-box mini" style="flex: 1; border-radius: 12px;">
-            BANNER QUẢNG CÁO 2
-        </div>
-        <div class="placeholder-box mini" style="flex: 1; border-radius: 12px;">
-            BANNER QUẢNG CÁO 3
-        </div>
-    </div>
-
-</aside>
-
-    </div>
-</section>
-
-    <section class="long-banner container">
-        <div class="placeholder-box long">BANNER NGÀNH HÀNG S-STUDENT TRẢI DÀI 100%</div>
-    </section>
-
-    <section class="quick-categories container">
-        <div class="cat-item"><div class="icon-circle"><i class="fas fa-mobile-alt"></i></div><span>Điện thoại</span></div>
-        <div class="cat-item"><div class="icon-circle"><i class="fas fa-laptop"></i></div><span>Laptop</span></div>
-        <div class="cat-item"><div class="icon-circle"><i class="fas fa-tablet-alt"></i></div><span>Tablet</span></div>
-        <div class="cat-item"><div class="icon-circle"><i class="fas fa-headphones"></i></div><span>Âm thanh</span></div>
-        <div class="cat-item"><div class="icon-circle"><i class="fas fa-stopwatch"></i></div><span>Đồng hồ</span></div>
-        <div class="cat-item"><div class="icon-circle"><i class="fas fa-plug"></i></div><span>Phụ kiện</span></div>
-        <div class="cat-item"><div class="icon-circle"><i class="fas fa-desktop"></i></div><span>PC - Màn hình</span></div>
-    </section>
-
-    <section class="flash-sale container">
-        <div class="fs-header">
-            <h2><i class="fas fa-bolt fa-blink"></i> FLASH SALE 20-22H</h2>
-            <div class="countdown">
-                <span>KẾT THÚC SAU</span>
-                <div class="time-box" id="hours">02</div> :
-                <div class="time-box" id="mins">18</div> :
-                <div class="time-box" id="secs">40</div>
+        <aside class="sidebar-menu">
+            <ul>
+                <li><a href="javascript:void(0)" onclick="filterByCategory('phone')"><i class="fas fa-mobile-alt"></i><span>Điện thoại</span></a></li>
+                <li><a href="javascript:void(0)" onclick="filterByCategory('laptop')"><i class="fas fa-laptop"></i><span>Laptop</span></a></li>
+                <li><a href="javascript:void(0)" onclick="filterByCategory('audio')"><i class="fas fa-headphones"></i><span>Âm thanh</span></a></li>
+                <li><a href="javascript:void(0)" onclick="filterByCategory('accessory')"><i class="fas fa-plug"></i><span>Phụ kiện</span></a></li>
+                <li><a href="javascript:void(0)" onclick="filterByCategory('all')"><i class="fas fa-border-all"></i><span>Tất cả</span></a></li>
+            </ul>
+        </aside>
+        <div class="hero-center">
+            <div class="slider-container" style="border-radius: 12px; overflow: hidden;">
+                <img src="https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner-chinh.jpg?raw=true" style="width: 100%;" alt="Banner">
             </div>
         </div>
+    </section>
+
+    <section class="flash-sale container" id="flash-sale-section">
+        <div class="fs-header"><h2><i class="fas fa-bolt"></i> FLASH SALE</h2></div>
         <div class="product-list" id="fs-product-list"></div>
     </section>
 
     <section class="product-box container">
         <div class="box-header">
-            <h2 class="box-title">ĐIỆN THOẠI NỔI BẬT</h2>
-            <div class="brand-tags">
-                <span class="tag">Apple</span>
-                <span class="tag">Samsung</span>
-                <span class="tag">Xiaomi</span>
-                <span class="tag">OPPO</span>
-                <a href="#" class="view-all">Xem tất cả <i class="fas fa-chevron-right"></i></a>
-            </div>
+            <h2 class="box-title" id="main-title">SẢN PHẨM NỔI BẬT</h2>
         </div>
-        <div class="box-body">
-            <div class="vertical-banner">
-                <div class="placeholder-box vertical">BANNER DỌC BÊN TRÁI</div>
+        <div class="product-grid" id="main-product-list" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px;">
             </div>
-            <div class="product-grid" id="main-product-list"></div>
-        </div>
     </section>
 </main>
 
-<footer class="footer">
-    <div class="container"><p class="copyright" style="text-align: center; color: #94a3b8; font-size: 13px;">© 2026 TechStore - Dự án của Nhóm</p></div>
-</footer> 
+<script>
+// 1. Dữ liệu gộp tất cả sản phẩm
+const products = [
+    { id: 1, name: "ASUS ROG Gaming", category: "laptop", price: 20000000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner2.png?raw=true", isFlashSale: true },
+    { id: 2, name: "iPhone 17 Pro Max", category: "phone", price: 25000000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner3.png?raw=true", isFlashSale: true },
+    { id: 3, name: "Sony WH-1000XM5", category: "audio", price: 6500000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/headphone.png?raw=true", isFlashSale: false },
+    { id: 4, name: "Logitech G Pro", category: "accessory", price: 2500000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/mouse.png?raw=true", isFlashSale: false },
+    { id: 5, name: "Macbook Pro M3", category: "laptop", price: 39990000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner2.png?raw=true", isFlashSale: false },
+    { id: 6, name: "Samsung S24 Ultra", category: "phone", price: 29990000, img: "https://res.vdo.vn/Content/Upload/News/dinh-chinh-thong-tin-galaxy-s24-ultra-co-the-thieu-camera-zoom-quang-10x-230915101445-8fa2656eb8576.jpg", isFlashSale: true },
+    { id: 7, name: "Camera Canon R50", category: "accessory", price: 18900000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner2.png?raw=true", isFlashSale: false },
+    { id: 8, name: "Apple AirPods 4", category: "audio", price: 3490000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/headphone.png?raw=true", isFlashSale: true },
+    { id: 9, name: "Bàn phím cơ Akko", category: "accessory", price: 1550000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/mouse.png?raw=true", isFlashSale: false },
+    { id: 10, name: "Thẻ nhớ 128GB", category: "accessory", price: 450000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/mouse.png?raw=true", isFlashSale: false },
+    { id: 11, name: "Gimbal DJI RS 3", category: "accessory", price: 6990000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner2.png?raw=true", isFlashSale: true }
+    
+];
 
-<script src="js/data.js"></script> 
-<script src="js/storage.js"></script>
-<script src="js/home.js"></script>
+// 2. Hàm hiển thị
+function render(filter = 'all') {
+    const mainList = document.getElementById('main-product-list');
+    const fsList = document.getElementById('fs-product-list');
+    const fsSection = document.getElementById('flash-sale-section');
+    
+    mainList.innerHTML = "";
+    if(fsList) fsList.innerHTML = "";
+
+    // Ẩn Flash Sale nếu đang lọc danh mục cụ thể
+    fsSection.style.display = (filter === 'all') ? "block" : "none";
+
+    products.forEach(p => {
+        if (filter !== 'all' && p.category !== filter) return;
+
+        const html = `
+            <div class="product-card" onclick="viewDetail(${p.id})" style="border: 1px solid #eee; padding: 10px; border-radius: 8px; cursor: pointer;">
+                <img src="${p.img}" style="width:100%">
+                <h3 style="font-size:14px; margin:10px 0;">${p.name}</h3>
+                <p style="color:red; font-weight:bold;">${p.price.toLocaleString()}đ</p>
+            </div>
+        `;
+
+        if (p.isFlashSale && filter === 'all' && fsList) {
+            fsList.innerHTML += html;
+        } else {
+            mainList.innerHTML += html;
+        }
+    });
+}
+
+function filterByCategory(cat) {
+    document.getElementById('main-title').innerText = cat === 'all' ? "SẢN PHẨM NỔI BẬT" : "DANH MỤC: " + cat.toUpperCase();
+    render(cat);
+}
+
+function viewDetail(id) {
+    localStorage.setItem("productId", id);
+    window.location.href = "detail.html";
+}
+
+document.addEventListener('DOMContentLoaded', () => render('all'));
+</script>
 
 </body>
 </html>
