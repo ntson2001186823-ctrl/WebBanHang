@@ -36,24 +36,26 @@
             <div class="logo">
                 <h2 onclick="location.href='index.html'" style="cursor:pointer">TechStore</h2>
             </div>
-            <button class="btn-header"><i class="fas fa-bars">
-                
-            </i>
+            <button class="btn-header">
+                <i class="fas fa-bars"></i>
             <span>Danh mục</span>
         </button>
             <div class="search-wrapper">
                 <div class="search-box">
-                    <i class="fas fa-search">
-                        
-                    </i>
+                    <i class="fas fa-search"></i>
                     <input type="text" placeholder="Bạn muốn mua gì hôm nay?">
                 </div>
             </div>
             <div class="header-right">
-                <div class="action-item"><i class="fas fa-phone-alt"></i><span>1800.2097</span></div>
+                <div class="action-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>1800.2097</span>
+                </div>
               <a href="#" class="cart-btn action-item">
+                <div class="cart-icon-wrapper">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span class="badge">0</span>
+              </div>
                 <span>Giỏ hàng</span>
 </a>
                 <div class="action-item">
@@ -70,21 +72,88 @@
         <aside class="sidebar-menu">
             <ul>
                 <li><a href="javascript:void(0)" onclick="filterByCategory('phone')"><i class="fas fa-mobile-alt"></i><span>Điện thoại</span></a></li>
+                <li><a href="javascript:void(0)" onclick="filterByCategory('tablet')"><i class="fas fa-tablet-alt"></i><span>Tablet</span></a></li>
                 <li><a href="javascript:void(0)" onclick="filterByCategory('laptop')"><i class="fas fa-laptop"></i><span>Laptop</span></a></li>
                 <li><a href="javascript:void(0)" onclick="filterByCategory('audio')"><i class="fas fa-headphones"></i><span>Âm thanh</span></a></li>
                 <li><a href="javascript:void(0)" onclick="filterByCategory('accessory')"><i class="fas fa-plug"></i><span>Phụ kiện</span></a></li>
                 <li><a href="javascript:void(0)" onclick="filterByCategory('all')"><i class="fas fa-border-all"></i><span>Tất cả</span></a></li>
             </ul>
         </aside>
-        <div class="hero-center">
-            <div class="slider-container" style="border-radius: 12px; overflow: hidden;">
-                <img src="https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner-chinh.jpg?raw=true" style="width: 100%;" alt="Banner">
+        <div class="hero-center" style="flex: 3; display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+    <div class="slider-container" style="position: relative; overflow: hidden; border-radius: 12px; flex: 1;">
+        <div class="slider-track" style="display: flex; transition: transform 0.5s ease-in-out; height: 100%;">
+            <img src="images/banner-chinh.jpg" style="width: 100%; flex-shrink: 0; object-fit: cover;" alt="Banner 1">
+            <img src="images/banner-chinh1.jpg" style="width: 100%; flex-shrink: 0; object-fit: cover;" alt="Banner 2">
+            <img src="images/banner-chinh2.jpg" style="width: 100%; flex-shrink: 0; object-fit: cover;" alt="Banner 3">
+            <img src="images/banner-chinh3.jpg" style="width: 100%; flex-shrink: 0; object-fit: cover;" alt="Banner 4">
+        </div>
+
+        <button class="slider-btn prev" style="left: 10px;"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" style="right: 10px;"><i class="fas fa-chevron-right"></i></button>
+        
+        <div class="slider-dots" style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px;">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <div class="sub-slider-banners" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+        <img src="images/sub1.jpg" style="width: 100%; border-radius: 8px; aspect-ratio: 3/1; object-fit: cover;" alt="Sub 1">
+        <img src="images/sub2.jpg" style="width: 100%; border-radius: 8px; aspect-ratio: 3/1; object-fit: cover;" alt="Sub 2">
+        <img src="images/sub3.jpg" style="width: 100%; border-radius: 8px; aspect-ratio: 3/1; object-fit: cover;" alt="Sub 3">
+    </div>
+</div>
+
+        <aside class="hero-right" style="display: flex; flex-direction: column; gap: 10px; flex: 1; height: 100%;">
+    
+    <div class="cps-user-box" style="border: 1px solid #d70018; border-radius: 12px; padding: 15px; background: white; cursor: pointer; transition: all 0.3s ease;">
+    
+    <div class="cps-user-header" style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+        <i class="fas fa-user-circle" style="font-size: 36px; color: #d70018;"></i> <div style="text-align: left;">
+            <p style="font-size: 13px; font-weight: 600; color: #333; margin: 0; line-height: 1.4;">
+                Chào mừng bạn đến<br>với CellphoneS
+            </p>
+        </div>
+    </div>
+    
+
+    <div class="cps-user-actions" style="border-top: 1px solid #f0f0f0; padding-top: 10px; text-align: left;">
+        <div class="cps-user-links" style="font-size: 12px; color: #d70018; display: flex; align-items: center; gap: 5px;">
+            <span>Xem ưu đãi Smember</span>
+            <i class="fas fa-chevron-right" style="font-size: 9px; color: #d70018; transition: transform 0.2s ease;"></i>
+        </div>
+    </div>
+
+</div>
+
+    <div class="promo-list" style="flex: 1; display: flex; flex-direction: column; gap: 10px;">
+        <div class="placeholder-box mini" style="flex: 1; border-radius: 12px;">
+            BANNER QUẢNG CÁO 1
+        </div>
+        <div class="placeholder-box mini" style="flex: 1; border-radius: 12px;">
+            BANNER QUẢNG CÁO 2
+        </div>
+        <div class="placeholder-box mini" style="flex: 1; border-radius: 12px;">
+            BANNER QUẢNG CÁO 3
+        </div>
+    </div>
+
+</aside>
+
+    </div>
+</section>
+    <section class="flash-sale container" id="flash-sale-section">
+        <div class="fs-header"><h2><i class="fas fa-bolt fa-blink"></i> FLASH SALE 20-23H</h2>
+        <div class="countdown">
+                <span>KẾT THÚC SAU</span>
+                <div class="time-box" id="hours">02</div> :
+                <div class="time-box" id="mins">39</div> :
+                <div class="time-box" id="secs">00</div>
             </div>
         </div>
-    </section>
 
-    <section class="flash-sale container" id="flash-sale-section">
-        <div class="fs-header"><h2><i class="fas fa-bolt"></i> FLASH SALE</h2></div>
         <div class="product-list" id="fs-product-list"></div>
     </section>
 
@@ -156,7 +225,15 @@ function viewDetail(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => render('all'));
+
 </script>
+<footer class="footer">
+    <div class="container"><p class="copyright" style="text-align: center; color: #94a3b8; font-size: 13px;">© 2026 TechStore - Dự án của Nhóm</p></div>
+</footer> 
+
+<script src="js/data.js"></script> 
+<script src="js/storage.js"></script>
+<script src="js/home.js"></script>
 
 </body>
 </html>

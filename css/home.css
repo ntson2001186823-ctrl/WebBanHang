@@ -2,13 +2,17 @@
     display: flex;
     gap: 15px;
     margin-top: 15px;
-    
+    align-items: stretch;
 }
-
-
-
+.hero-main-content {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+    align-items: stretch;
+}
 .hero-center {
     flex: 1;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -28,9 +32,11 @@
 }
 
 .slider-track img {
+    flex: 0 0 100%; 
     width: 100%;
-    flex-shrink: 0;
+    height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .sub-slider-banners {
@@ -53,61 +59,65 @@
     padding: 10px 0;
     box-shadow: var(--shadow-sm);
     border: 1px solid #eee;
-    display: flex;
-    flex-direction: column;
 }
-
+.sidebar-menu li {
+    margin: 2px 8px;
+}
+/* ❌ bỏ space-between để item đều nhau */
 .sidebar-menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
+/* Item */
 .sidebar-menu li a {
     display: flex;
     align-items: center;
-    padding: 8px 15px;
+    padding: 12px 16px; /* 🔥 đều và thoáng hơn */
     text-decoration: none;
     color: #333;
-    font-size: 13px;
+    font-size: 15px; /* 🔥 chữ to hơn */
     font-weight: 500;
-    transition: var(--transition-fast);
+    transition: 0.2s;
 }
 
+/* Icon trái */
 .sidebar-menu li a i:first-child {
-    width: 20px;
-    font-size: 16px;
-    margin-right: 10px;
+    width: 24px; /* 🔥 fix thẳng hàng */
+    font-size: 18px; /* 🔥 icon to hơn */
+    margin-right: 12px;
     color: #555;
     text-align: center;
 }
 
+/* Mũi tên phải */
 .sidebar-menu li a::after {
     content: "\f054";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
-    font-size: 9px;
+    font-size: 11px;
     margin-left: auto;
     color: #bbb;
-    transition: transform 0.2s ease;
+    transition: 0.2s;
 }
 
+/* Hover */
 .sidebar-menu li a:hover {
-    background: #f8fafc;
+    background: #f5f5f5;
     color: var(--main-color);
+    border-radius: 8px;
 }
 
-.sidebar-menu li a:hover::after {
-    color: var(--main-color);
-    transform: translateX(3px);
-}
-
+/* Hover icon */
 .sidebar-menu li a:hover i:first-child {
     color: var(--main-color);
+}
+
+/* Hover arrow */
+.sidebar-menu li a:hover::after {
+    color: var(--main-color);
+    transform: translateX(4px);
 }
 
 .hero-right {
@@ -227,15 +237,24 @@
 .flash-sale {
     background: linear-gradient(90deg, #d70018 0%, #ff4e50 100%);
     padding: 15px 20px; border-radius: 16px; margin: 20px auto;
+   
 }
-.fs-header { display: flex; justify-content: space-between; align-items: center; color: white; margin-bottom: 15px; }
-.fs-header h2 { font-style: italic; font-weight: 900; font-size: 24px; display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px; }
+.fs-header { 
+    display: flex; justify-content: space-between; align-items: center; color: white; margin-bottom: 15px; gap: 10px;}
+.fs-header h2 { 
+    font-style: italic; font-weight: 900; font-size: 24px; display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px; flex: 1;
+    min-width: 0; }
 
 /* Tia sét chớp tắt */
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 .fa-blink { animation: blink 1s infinite; color: #ffde59; }
 
-.countdown { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13px; }
+.countdown { 
+    display: flex; 
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 4px;
+    align-items: center; gap: 6px;  white-space: nowrap; }
 .time-box {
     background: #111; color: white;
     width: 30px; height: 30px; border-radius: 6px; /* Vuông vức */

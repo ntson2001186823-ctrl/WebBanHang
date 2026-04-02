@@ -11,7 +11,7 @@
     --border-soft: #f1f5f9;      /* Viền siêu mảnh, sang trọng */
     
     /* Đổ bóng (Soft Shadows - Đa tầng để khối nổi lửng) */
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-sm: 0 2px 4px rgba(123,107,107,0.02), 0 1px 2px rgba(0,0,0,0.04);
     --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
     --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
     --shadow-dropdown: 0 15px 35px -5px rgba(0,0,0,0.1), 0 10px 15px -5px rgba(0,0,0,0.04);
@@ -118,11 +118,12 @@ body {
 }
 
 .header-content {
-    display: grid;
-    grid-template-columns: auto auto auto 1fr auto;
+    display: flex;               /* chuyển flexbox */
     align-items: center;
-    gap: 10px;
+    justify-content: space-between; /* phân bổ đều */
+    gap: 20px;                  /* khoảng cách giữa các phần */
     width: 100%;
+    padding: 0 15px;            /* đệm 2 bên để không sát mép */
 }
 
 .logo h2 {
@@ -198,12 +199,12 @@ body {
 }
 
 .cart-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px; 
-    text-decoration: none;
-    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
 }
+
 
 
 .cart-icon-wrapper {
