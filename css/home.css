@@ -200,7 +200,6 @@
     height: 100%; /* Đảm bảo banner đứng luôn phủ kín */
 }
 
-/* --- 3. FIX CARD TRONG FLASH SALE --- */
 #fs-product-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr); /* Luôn hiện 5 card mỗi hàng */
@@ -208,7 +207,7 @@
 }
 
 /* ==========================================================================
-   2. QUICK CATEGORIES & BRANDS (LÀM PHẲNG, TINH TẾ)
+   2. QUICK CATEGORIES & BRANDS (LÀM PHẲNG, TINH TẾ)`
    ========================================================================== */
 .long-banner { height: 75px; margin: 20px auto; border-radius: 12px; overflow: hidden; }
 
@@ -281,13 +280,13 @@
 /* --- CARD SẢN PHẨM --- */
 .product-card {
     background: white; border-radius: 12px; padding: 12px;
-    border: 1px solid var(--border-soft); /* Bỏ viền đen thô, dùng viền siêu mảnh */
+    border: 1px solid var(--border-soft); 
     display: flex; flex-direction: column; position: relative;
     cursor: pointer; transition: var(--transition-smooth);
 }
 .product-card:hover {
-    transform: translateY(-8px); /* Nổi lên mạnh */
-    box-shadow: var(--shadow-lg); /* Kế thừa đổ bóng từ base.css */
+    transform: translateY(-8px); 
+    box-shadow: var(--shadow-lg); 
     border-color: transparent;
 }
 
@@ -306,8 +305,8 @@
 
 /* Thanh Tiến Độ (Progress Bar) */
 .progress-container {
-    background: #fecaca; /* Hồng nhạt */
-    border-radius: 999px; /* Bo tròn tuyệt đối */
+    background: #fecaca; 
+    border-radius: 999px; 
     width: 100%; height: 16px; position: relative; overflow: hidden; margin-top: auto;
 }
 .progress-fill { background: var(--main-color); height: 100%; border-radius: 999px; }
@@ -330,7 +329,7 @@
 }
 
 .dot.active {
-    width: 20px !important; /* Dài ra khi active cho hiện đại */
+    width: 20px !important; 
     border-radius: 10px !important;
 }   
 
@@ -341,7 +340,7 @@
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.3); /* Mờ nhẹ */
+    background: rgba(255, 255, 255, 0.3); 
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -351,14 +350,14 @@
     justify-content: center;
     font-size: 18px;
     transition: all 0.3s ease;
-    opacity: 0; /* Mặc định ẩn đi */
+    opacity: 0; 
     z-index: 10;
 }
 
 /* Hiện nút khi di chuột vào container */
 .slider-container:hover .slider-btn {
     opacity: 1;
-    background: rgba(0, 0, 0, 0.5); /* Hiện rõ hơn với nền tối */
+    background: rgba(0, 0, 0, 0.5); 
 }
 
 .slider-btn:hover {
@@ -366,29 +365,27 @@
     scale: 1.1;
 }
 
-/* Container cha chứa Slider và phần bên phải */
 .hero-main-content {
     display: flex;
-    gap: 15px; /* Khoảng cách giữa slider và khối bên phải */
+    gap: 15px; 
     margin-top: 15px;
-    align-items: stretch; /* RẤT QUAN TRỌNG: Làm cho khối bên phải cao bằng Slider */
+    align-items: stretch; 
 }
 
 .hero-center {
-    flex: 3; /* Slider chiếm diện tích lớn hơn */
-    /* ... giữ nguyên css cũ ... */
+    flex: 3; 
+   
 }
 
 .hero-right {
-    flex: 1; /* Khối bên phải chiếm diện tích nhỏ hơn */
+    flex: 1; 
     height: 100%;
 }
 
-/* Định dạng chung cho các ô giữ chỗ quảng cáo */
 .placeholder-box {
-    background: #f1f5f9; /* Màu nền xám nhẹ */
-    color: #94a3b8; /* Màu chữ */
-    border: 1px dashed #cbd5e1; /* Viền đứt nét nhẹ */
+    background: #f1f5f9; 
+    color: #94a3b8; 
+    border: 1px dashed #cbd5e1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -396,13 +393,52 @@
     font-weight: 500;
 }
 
-/* Hiệu ứng khi hover vào Box Chào mừng */
 .cps-user-box:hover {
-    box-shadow: 0 4px 15px rgba(215, 0, 24, 0.1); /* Bóng đỏ mờ */
-    transform: translateY(-3px); /* Nhấc nhẹ lên */
+    box-shadow: 0 4px 15px rgba(215, 0, 24, 0.1); 
+    transform: translateY(-3px); 
 }
 
-/* Hiệu ứng cho mũi tên khi hover vào Box */
 .cps-user-box:hover .cps-user-links i {
-    transform: translateX(3px); /* Mũi tên nhích sang phải */
+    transform: translateX(3px); 
+}
+
+.btn-add-cart {
+    width: 100%;
+    background-color: #d70018; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px; 
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+}
+
+.btn-add-cart:hover {
+    background-color: #a50012; 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 8px rgba(215, 0, 24, 0.2); 
+}
+
+.btn-add-cart:active {
+    transform: translateY(0);
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }

@@ -57,38 +57,34 @@ window.selectOption = function(element, type) {
 };
 
 // --- CHỨC NĂNG GIỎ HÀNG CHÍNH ---
+// --- CHỨC NĂNG GIỎ HÀNG CHÍNH (ĐÃ FIX XUNG ĐỘT) ---
 window.addToCartAndRedirect = function() {
-    // 1. Lấy các tùy chọn người dùng đã chọn (active)
+    // 1. Kiểm tra xem hệ thống giỏ hàng đã sẵn sàng chưa
+    if (!window.cartSystem) {
+        console.error("Lỗi: Không tìm thấy cartSystem. Hãy kiểm tra file storage.js");
+        return;
+    }
+
+    // 2. Lấy các tùy chọn người dùng đã chọn (active)
     const selectedOptions = document.querySelectorAll('.option-item.active');
     let details = [];
     selectedOptions.forEach(opt => details.push(opt.innerText.trim()));
+    const selectionString = details.join(" - "); // Ví dụ: "256GB - Xám Titan"
 
-    // 2. Tạo đối tượng sản phẩm để bỏ vào giỏ
-    const cartItem = {
+    // 3. Sử dụng hệ thống cartSystem để thêm hàng
+    // Tui đã chỉnh lại để nó nhận thêm phần 'selection' (màu, dung lượng)
+    window.cartSystem.addItem({
         id: foundProduct.id,
         name: foundProduct.name,
         price: foundProduct.price,
         img: foundProduct.img,
-        selection: details.join(" - "), // Ví dụ: "256GB - Titan Sa Mạc"
-        quantity: 1
-    };
+        category: foundProduct.category,
+        selection: selectionString // Truyền thêm cấu hình người dùng chọn
+    });
 
-    // 3. Lấy giỏ hàng hiện tại từ localStorage (nếu chưa có thì tạo mảng rỗng)
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // 4. Kiểm tra xem sản phẩm cùng loại này đã có trong giỏ chưa
-    const existingIndex = cart.findIndex(item => item.id === cartItem.id && item.selection === cartItem.selection);
-
-    if (existingIndex > -1) {
-        cart[existingIndex].quantity += 1;
-    } else {
-        cart.push(cartItem);
-    }
-
-    // 5. Lưu lại vào localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // 6. Thông báo và chuyển hướng về trang chủ
-    alert("Đã thêm sản phẩm vào giỏ hàng thành công!");
+    // 4. Thông báo và chuyển hướng
+    alert(`Đã thêm ${foundProduct.name} (${selectionString}) vào giỏ hàng!`);
+    
+    // Quay về trang chủ để xem Badge nhảy số
     window.location.href = "index.html"; 
 };

@@ -1,230 +1,370 @@
-body {
-    background-color: #fff;
-    font-family: 'Inter', sans-serif;
-    color: #000;
+/* ==========================================================================
+   CHECKOUT - STYLE ĐỒNG BỘ TECHSTORE (CLEAN CODE)
+   ========================================================================== */
+
+/* --- 1. BIẾN MÀU SẮC (VARIABLES) --- */
+:root {
+    --main-color: #d70018;         /* Đỏ TechStore */
+    --main-color-hover: #a50012;   /* Đỏ đậm khi hover */
+    --bg-body: #f4f6f8;            /* Xám nhạt nền web */
+    --text-main: #333333;          /* Đen chữ chính */
+    --text-muted: #64748b;         /* Xám chữ phụ */
+    --border-color: #e2e8f0;       /* Viền nhạt */
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.05); /* Bóng đổ cho khung */
+    --shadow-btn: 0 6px 15px rgba(215, 0, 24, 0.25); /* Bóng đổ cho nút */
+    --transition-fast: 0.3s ease;
 }
 
+/* --- 2. CÀI ĐẶT CƠ BẢN (BASE) --- */
+body {
+    background-color: var(--bg-body);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+}
+
+/* --- 3. BỐ CỤC CHÍNH (LAYOUT 60/40) --- */
+.checkout-layout {
+    max-width: 1000px; /* Ép nó nhỏ lại chút nữa, tầm 1000px là đẹp nhất */
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 380px; /* Cố định cột phải 380px, cột trái tự co giãn */
+    gap: 30px;
+}
+
+/* Header mỏng gọn */
 .checkout-header {
-    border-bottom: 1px solid #eee;
-    padding: 20px 0;
+    background: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .checkout-header .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .checkout-header .logo {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--main-color);
     text-decoration: none;
-    color: #000;
-    letter-spacing: -0.5px;
+    text-transform: uppercase;
 }
 
 .secure-checkout {
-    font-size: 13px;
-    color: #666;
+    color: #16a34a; /* Màu xanh lá tạo sự an tâm */
+    font-weight: 600;
 }
 
-.checkout-layout {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
-    padding: 50px 0;
-    align-items: start;
+/* --- 4. KHUNG NỘI DUNG (BOX MODEL) --- */
+.checkout-form-section, 
+.checkout-sidebar {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
 }
-
-.back-to-cart { margin-bottom: 30px; }
-.back-to-cart a { color: #666; text-decoration: none; font-size: 14px; transition: 0.2s; }
-.back-to-cart a:hover { color: #000; }
 
 .section-title, .sidebar-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 30px;
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--main-color);
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
-.form-group { margin-bottom: 25px; }
+/* --- 5. FORM & INPUTS --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row.split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
 .form-group label {
     display: block;
-    font-size: 13px;
-    color: #666;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
     margin-bottom: 8px;
 }
 
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"] {
+.form-group input {
     width: 100%;
-    padding: 12px 0;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    font-size: 16px;
-    font-family: inherit;
-    outline: none;
-    transition: border-color 0.3s;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: var(--transition-fast);
 }
 
-.form-group input:focus { border-bottom-color: #000; }
-.form-row.split { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group input:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 3px rgba(215, 0, 24, 0.1);
+    outline: none;
+}
+
+/* Radio Nút chọn thanh toán */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
 .radio-container {
     display: block;
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
+    padding: 16px 16px 16px 45px;
     cursor: pointer;
-    font-size: 15px;
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-weight: 600;
+    transition: var(--transition-fast);
 }
 
-.radio-container input { position: absolute; opacity: 0; cursor: pointer; }
+.radio-container:hover {
+    background-color: #fff1f2;
+}
+
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+}
+
 .checkmark {
     position: absolute;
-    top: 2px; left: 0;
-    height: 18px; width: 18px;
-    background-color: #fff;
-    border: 1px solid #000;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    border: 2px solid #cbd5e1;
     border-radius: 50%;
+    transition: var(--transition-fast);
 }
 
-.radio-container input:checked ~ .checkmark { background-color: #000; }
-.checkmark:after {
+.radio-container input:checked ~ .checkmark {
+    border-color: var(--main-color);
+}
+
+.radio-container input:checked ~ .checkmark:after {
     content: "";
     position: absolute;
-    display: none;
-    top: 5px; left: 5px;
-    width: 6px; height: 6px;
+    top: 4px;
+    left: 4px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: white;
+    background: var(--main-color);
 }
 
-.radio-container input:checked ~ .checkmark:after { display: block; }
-
-.btn-place-order {
+/* --- 6. NÚT BẤM (BUTTONS) --- */
+.btn-place-order, 
+.btn-confirm {
     width: 100%;
-    background: #000;
-    color: #fff;
-    padding: 20px;
+    background-color: var(--main-color);
+    color: #ffffff;
     border: none;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
     cursor: pointer;
-    margin-top: 20px;
-    transition: 0.3s;
+    margin-top: 15px;
+    transition: var(--transition-fast);
 }
 
-.btn-place-order:hover { background: #333; }
-
-.checkout-sidebar {
-    background: #fafafa;
-    padding: 40px;
+.btn-place-order:hover, 
+.btn-confirm:hover {
+    background-color: var(--main-color-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-btn);
 }
 
-.checkout-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.btn-place-order:active, 
+.btn-confirm:active {
+    transform: translateY(0);
+}
+
+.back-to-cart a {
+    display: inline-block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
     margin-bottom: 20px;
+    transition: var(--transition-fast);
 }
 
-.item-info { display: flex; align-items: center; gap: 15px; }
-.item-img { position: relative; }
-.item-img img { width: 60px; height: 60px; object-fit: cover; border-radius: 4px; border: 1px solid #eee; }
-
-.item-qty {
-    position: absolute;
-    top: -8px; right: -8px;
-    background: #666; color: #fff;
-    width: 20px; height: 20px;
-    border-radius: 50%;
-    font-size: 11px;
-    display: flex; align-items: center; justify-content: center;
+.back-to-cart a:hover {
+    color: var(--main-color);
 }
 
-.item-name { font-size: 14px; font-weight: 500; }
-.item-price { font-size: 14px; }
-.summary-line { display: flex; justify-content: space-between; margin-top: 20px; font-size: 14px; color: #666; }
-.total-line { margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 18px; color: #000; font-weight: 600; }
-
-/* MODAL BOX */
+/* --- 7. MODAL QR XỊN --- */
 .modal {
-    position: fixed !important;
-    top: 0 !important; left: 0 !important;
-    width: 100% !important; height: 100% !important;
-    background-color: rgba(0, 0, 0, 0.85) !important;
-    z-index: 9999 !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Nền mờ tối hơn chút để tập trung */
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(3px); /* Hiệu ứng mờ nền kính xịn xò */
+}
+
+.modal.hidden {
+    display: none;
 }
 
 .modal-content {
-    background: #fff;
-    padding: 40px;
-    border-radius: 0;
-    text-align: center;
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 20px;
+    width: 100%;
     max-width: 420px;
-    width: 90%;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+#qr-container {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    padding: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 20px 0;
 }
 
 #qr-image {
-    width: 260px; height: 260px;
-    margin: 20px auto;
+    width: 220px;
+    height: 220px;
     display: block;
-    object-fit: contain;
 }
 
 .payment-info {
+    background-color: #fff1f2; /* Nền hồng nhạt */
+    border-left: 5px solid var(--main-color-hover); /* Viền trái đỏ đậm */
+    padding: 15px;
+    border-radius: 8px;
     text-align: left;
-    background: #f8f8f8;
-    padding: 15px 20px;
-    margin-bottom: 25px;
-    border-left: 3px solid #000;
+    margin-bottom: 20px;
 }
 
 .payment-info p {
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: #333;
+    margin: 8px 0;
+    color: var(--text-main);
+    font-size: 15px;
+}
+
+.payment-info span {
+    font-weight: 700;
+    color: var(--main-color);
 }
 
 #confirm-paid-btn {
     width: 100%;
-    background: #000;
-    color: #fff;
-    padding: 16px;
+    background-color: var(--main-color);
+    color: white;
+    padding: 15px;
     border: none;
-    font-size: 13px;
+    border-radius: 12px;
     font-weight: 700;
-    letter-spacing: 1px;
     cursor: pointer;
     margin-bottom: 15px;
-    transition: 0.3s;
+    transition: var(--transition-fast);
 }
 
-#confirm-paid-btn:hover { background: #333; }
+#confirm-paid-btn:hover {
+    background-color: var(--main-color-hover);
+}
 
-#close-modal {
-    background: transparent;
+.btn-link {
+    background: none;
     border: none;
-    color: #999;
-    font-size: 12px;
+    color: var(--text-muted);
     text-decoration: underline;
     cursor: pointer;
+    font-size: 14px;
 }
 
-#close-modal:hover { color: #000; }
-
-.hidden {
-    display: none !important;
-}
-
+/* --- 8. RESPONSIVE DÀNH CHO ĐIỆN THOẠI --- */
 @media (max-width: 768px) {
-    .checkout-layout { grid-template-columns: 1fr; gap: 40px; padding: 30px 0; }
-    .form-row.split { grid-template-columns: 1fr; }
-    .checkout-sidebar { padding: 20px; }
+    .checkout-layout {
+        grid-template-columns: 1fr; /* Trở về 1 cột */
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .form-row.split {
+        grid-template-columns: 1fr; /* Các ô input chia đôi sẽ thành nằm dọc */
+    }
+}
+
+.checkout-items img, 
+.order-summary img {
+    max-width: 100px; 
+    height: auto;
+    object-fit: contain;
+}
+
+.checkout-form-section {
+    min-width: 450px; 
+}
+
+/* Làm đẹp từng món hàng trong sidebar */
+.checkout-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.checkout-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-info h4 {
+    font-size: 14px;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.item-info p {
+    font-size: 13px;
+    color: #d70018; /* Màu giá tiền */
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Tăng độ bám của sidebar khi cuộn trang */
+.checkout-sidebar {
+    position: sticky;
+    top: 20px;
 }

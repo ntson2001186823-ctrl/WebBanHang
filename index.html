@@ -51,12 +51,12 @@
                     <i class="fas fa-phone-alt"></i>
                     <span>1800.2097</span>
                 </div>
-              <a href="#" class="cart-btn action-item">
-                <div class="cart-icon-wrapper">
-                <i class="fa-solid fa-cart-shopping"></i>
-                <span class="badge">0</span>
-              </div>
-                <span>Giỏ hàng</span>
+              <a href="cart.html" class="cart-btn action-item">
+    <div class="cart-icon-wrapper">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="badge">0</span>
+    </div>
+    <span>Giỏ hàng</span>
 </a>
                 <div class="action-item">
                     <i class="fas fa-user-circle"> </i>
@@ -165,70 +165,10 @@
             </div>
     </section>
 </main>
-
-<script>
-// 1. Dữ liệu gộp tất cả sản phẩm
-const products = [
-    { id: 1, name: "ASUS ROG Gaming", category: "laptop", price: 20000000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner2.png?raw=true", isFlashSale: true },
-    { id: 2, name: "iPhone 17 Pro Max", category: "phone", price: 25000000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner3.png?raw=true", isFlashSale: true },
-    { id: 3, name: "Sony WH-1000XM5", category: "audio", price: 6500000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/headphone.png?raw=true", isFlashSale: false },
-    { id: 4, name: "Logitech G Pro", category: "accessory", price: 2500000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/mouse.png?raw=true", isFlashSale: false },
-    { id: 5, name: "Macbook Pro M3", category: "laptop", price: 39990000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner2.png?raw=true", isFlashSale: false },
-    { id: 6, name: "Samsung S24 Ultra", category: "phone", price: 29990000, img: "https://res.vdo.vn/Content/Upload/News/dinh-chinh-thong-tin-galaxy-s24-ultra-co-the-thieu-camera-zoom-quang-10x-230915101445-8fa2656eb8576.jpg", isFlashSale: true },
-    { id: 7, name: "Camera Canon R50", category: "accessory", price: 18900000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner2.png?raw=true", isFlashSale: false },
-    { id: 8, name: "Apple AirPods 4", category: "audio", price: 3490000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/headphone.png?raw=true", isFlashSale: true },
-    { id: 9, name: "Bàn phím cơ Akko", category: "accessory", price: 1550000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/mouse.png?raw=true", isFlashSale: false },
-    { id: 10, name: "Thẻ nhớ 128GB", category: "accessory", price: 450000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/mouse.png?raw=true", isFlashSale: false },
-    { id: 11, name: "Gimbal DJI RS 3", category: "accessory", price: 6990000, img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner2.png?raw=true", isFlashSale: true }
-    
-];
-
-// 2. Hàm hiển thị
-function render(filter = 'all') {
-    const mainList = document.getElementById('main-product-list');
-    const fsList = document.getElementById('fs-product-list');
-    const fsSection = document.getElementById('flash-sale-section');
-    
-    mainList.innerHTML = "";
-    if(fsList) fsList.innerHTML = "";
-
-    // Ẩn Flash Sale nếu đang lọc danh mục cụ thể
-    fsSection.style.display = (filter === 'all') ? "block" : "none";
-
-    products.forEach(p => {
-        if (filter !== 'all' && p.category !== filter) return;
-
-        const html = `
-            <div class="product-card" onclick="viewDetail(${p.id})" style="border: 1px solid #eee; padding: 10px; border-radius: 8px; cursor: pointer;">
-                <img src="${p.img}" style="width:100%">
-                <h3 style="font-size:14px; margin:10px 0;">${p.name}</h3>
-                <p style="color:red; font-weight:bold;">${p.price.toLocaleString()}đ</p>
-            </div>
-        `;
-
-        if (p.isFlashSale && filter === 'all' && fsList) {
-            fsList.innerHTML += html;
-        } else {
-            mainList.innerHTML += html;
-        }
-    });
-}
-
-function filterByCategory(cat) {
-    document.getElementById('main-title').innerText = cat === 'all' ? "SẢN PHẨM NỔI BẬT" : "DANH MỤC: " + cat.toUpperCase();
-    render(cat);
-}
-
-function viewDetail(id) {
-    localStorage.setItem("productId", id);
-    window.location.href = "detail.html";
-}
-
-document.addEventListener('DOMContentLoaded', () => render('all'));
-
-</script>
 <footer class="footer">
-    <div class="container"><p class="copyright" style="text-align: center; color: #94a3b8; font-size: 13px;">© 2026 TechStore - Dự án của Nhóm</p></div>
+    <div class="container">
+        <p class="copyright" style="text-align: center; color: #94a3b8; font-size: 13px;">© 2026 TechStore - Dự án của Nhóm</p>
+    </div>
 </footer> 
 
 <script src="js/data.js"></script> 
