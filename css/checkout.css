@@ -15,7 +15,7 @@
     --transition-fast: 0.3s ease;
 }
 
-/* --- 2. CÀI ĐẶT CƠ BẢN (BASE) --- */
+
 body {
     background-color: var(--bg-body);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -24,12 +24,11 @@ body {
     padding: 0;
 }
 
-/* --- 3. BỐ CỤC CHÍNH (LAYOUT 60/40) --- */
 .checkout-layout {
-    max-width: 1000px; /* Ép nó nhỏ lại chút nữa, tầm 1000px là đẹp nhất */
+    max-width: 1000px; 
     margin: 40px auto;
     display: grid;
-    grid-template-columns: 1fr 380px; /* Cố định cột phải 380px, cột trái tự co giãn */
+    grid-template-columns: 1fr 380px; 
     gap: 30px;
 }
 
@@ -58,7 +57,7 @@ body {
 }
 
 .secure-checkout {
-    color: #16a34a; /* Màu xanh lá tạo sự an tâm */
+    color: #16a34a; 
     font-weight: 600;
 }
 
@@ -117,7 +116,6 @@ body {
     outline: none;
 }
 
-/* Radio Nút chọn thanh toán */
 .payment-methods {
     display: flex;
     flex-direction: column;
@@ -214,19 +212,19 @@ body {
     color: var(--main-color);
 }
 
-/* --- 7. MODAL QR XỊN --- */
+/* --- 7. MODAL thanh toán*/
 .modal {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.65); /* Nền mờ tối hơn chút để tập trung */
+    background: rgba(0, 0, 0, 0.65); 
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    backdrop-filter: blur(3px); /* Hiệu ứng mờ nền kính xịn xò */
+    backdrop-filter: blur(3px); 
 }
 
 .modal.hidden {
@@ -259,8 +257,8 @@ body {
 }
 
 .payment-info {
-    background-color: #fff1f2; /* Nền hồng nhạt */
-    border-left: 5px solid var(--main-color-hover); /* Viền trái đỏ đậm */
+    background-color: #fff1f2; 
+    border-left: 5px solid var(--main-color-hover); 
     padding: 15px;
     border-radius: 8px;
     text-align: left;
@@ -307,13 +305,13 @@ body {
 /* --- 8. RESPONSIVE DÀNH CHO ĐIỆN THOẠI --- */
 @media (max-width: 768px) {
     .checkout-layout {
-        grid-template-columns: 1fr; /* Trở về 1 cột */
+        grid-template-columns: 1fr; 
         gap: 20px;
         padding: 20px 0;
     }
 
     .form-row.split {
-        grid-template-columns: 1fr; /* Các ô input chia đôi sẽ thành nằm dọc */
+        grid-template-columns: 1fr; 
     }
 }
 
@@ -328,7 +326,6 @@ body {
     min-width: 450px; 
 }
 
-/* Làm đẹp từng món hàng trong sidebar */
 .checkout-item {
     display: flex;
     align-items: center;
@@ -358,13 +355,13 @@ body {
 
 .item-info p {
     font-size: 13px;
-    color: #d70018; /* Màu giá tiền */
+    color: #d70018; 
     font-weight: 700;
     margin: 0;
 }
 
-/* Tăng độ bám của sidebar khi cuộn trang */
 .checkout-sidebar {
     position: sticky;
     top: 20px;
 }
+

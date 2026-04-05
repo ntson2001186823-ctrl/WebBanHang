@@ -1,5 +1,4 @@
-// File: js/cart-logic.js
-// Mục đích: Xử lý giao diện DOM và sự kiện người dùng
+
 
 document.addEventListener('DOMContentLoaded', () => {
     

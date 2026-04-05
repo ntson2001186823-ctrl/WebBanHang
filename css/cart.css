@@ -194,3 +194,7 @@
         position: static;
     }
 }
+
+.hidden {
+    display: none !important;
+}

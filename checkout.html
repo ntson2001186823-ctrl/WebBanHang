@@ -12,8 +12,8 @@
 
     <header class="checkout-header">
         <div class="container">
-            <a href="index.html" class="logo">Tech Store</a>
-            <span class="secure-checkout">🔒 Thanh toán bảo mật</span>
+            <a href="index.html" class="logo">techstore</a>
+            <span class="secure-checkout">Thanh toán bảo mật</span>
         </div>
     </header>
 
@@ -46,17 +46,17 @@
                 <div class="form-group">
                     <label>Phương thức thanh toán</label>
                     <div class="payment-methods">
-                        <label class="radio-container">
-                            <input type="radio" name="payment" value="banking" checked>
-                            <span class="checkmark"></span>
-                            Chuyển khoản ngân hàng (VietQR)
-                        </label>
-                        <label class="radio-container">
-                            <input type="radio" name="payment" value="momo">
-                            <span class="checkmark"></span>
-                            Ví điện tử MoMo
-                        </label>
-                    </div>
+                    <label class="radio-container">
+                        <input type="radio" name="payment" value="banking" checked>
+                        <span class="checkmark"></span>
+                        Chuyển khoản ngân hàng
+                    </label>
+                    <label class="radio-container">
+                        <input type="radio" name="payment" value="momo">
+                        <span class="checkmark"></span>
+                        Ví điện tử MoMo
+                    </label>
+                </div>
                 </div>
 
                 <button type="submit" class="btn-confirm">XÁC NHẬN ĐẶT HÀNG</button>
@@ -68,16 +68,7 @@
             <div id="checkout-items" class="checkout-items">
                 </div>
             
-            <div class="checkout-summary">
-                <div class="summary-line">
-                    <span>Tạm tính</span>
-                    <span id="checkout-subtotal">0đ</span>
-                </div>
-                <div class="summary-line total-line">
-                    <span>Tổng cộng</span>
-                    <span id="checkout-total">0đ</span>
-                </div>
-            </div>
+            <div id="calc-box"></div>
         </aside>
 
     </main>

@@ -49,15 +49,14 @@ if (detailContainer && foundProduct) {
     `;
 }
 
-// Hàm chọn Option (GB, Màu)
 window.selectOption = function(element, type) {
     const parent = element.parentElement;
     parent.querySelectorAll('.option-item').forEach(item => item.classList.remove('active'));
     element.classList.add('active');
 };
 
-// --- CHỨC NĂNG GIỎ HÀNG CHÍNH ---
-// --- CHỨC NĂNG GIỎ HÀNG CHÍNH (ĐÃ FIX XUNG ĐỘT) ---
+// GIỎ HÀNG CHÍNH ---
+
 window.addToCartAndRedirect = function() {
     // 1. Kiểm tra xem hệ thống giỏ hàng đã sẵn sàng chưa
     if (!window.cartSystem) {
@@ -69,22 +68,21 @@ window.addToCartAndRedirect = function() {
     const selectedOptions = document.querySelectorAll('.option-item.active');
     let details = [];
     selectedOptions.forEach(opt => details.push(opt.innerText.trim()));
-    const selectionString = details.join(" - "); // Ví dụ: "256GB - Xám Titan"
+    const selectionString = details.join(" - "); 
 
     // 3. Sử dụng hệ thống cartSystem để thêm hàng
-    // Tui đã chỉnh lại để nó nhận thêm phần 'selection' (màu, dung lượng)
+
     window.cartSystem.addItem({
         id: foundProduct.id,
         name: foundProduct.name,
         price: foundProduct.price,
         img: foundProduct.img,
         category: foundProduct.category,
-        selection: selectionString // Truyền thêm cấu hình người dùng chọn
+        selection: selectionString 
     });
 
     // 4. Thông báo và chuyển hướng
     alert(`Đã thêm ${foundProduct.name} (${selectionString}) vào giỏ hàng!`);
     
-    // Quay về trang chủ để xem Badge nhảy số
     window.location.href = "index.html"; 
 };
