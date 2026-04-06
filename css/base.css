@@ -1,29 +1,20 @@
-/* ==========================================================================
-   1. HỆ THỐNG BIẾN & TOKENS (DESIGN SYSTEM)
-   ========================================================================== */
 :root {
     /* Màu sắc thương hiệu */
-    --main-color: #d70018;       /* Đỏ CellphoneS */
-    --dark-red: #b00012;         /* Đỏ đậm cho Topbar */
-    --text-color: #333333;       /* Chữ nội dung */
-    --text-muted: #64748b;       /* Chữ phụ, ghi chú */
-    --bg-body: #f4f6f8;          /* Nền xám cực nhẹ giúp nổi bật Card */
-    --border-soft: #f1f5f9;      /* Viền siêu mảnh, sang trọng */
+    --main-color: #d70018;       
+    --dark-red: #b00012;         
+    --text-color: #333333;      
+    --text-muted: #64748b;      
+    --bg-body: #f4f6f8;          
+    --border-soft: #f1f5f9;      
     
-    /* Đổ bóng (Soft Shadows - Đa tầng để khối nổi lửng) */
     --shadow-sm: 0 2px 4px rgba(123,107,107,0.02), 0 1px 2px rgba(0,0,0,0.04);
     --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
     --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -2px rgba(0,0,0,0.04);
     --shadow-dropdown: 0 15px 35px -5px rgba(0,0,0,0.1), 0 10px 15px -5px rgba(0,0,0,0.04);
-    
-    /* Chuyển động (Êm ái, phản hồi nhanh) */
+
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-/* ==========================================================================
-   2. TỐI ƯU TYPOGRAPHY CHO MACBOOK PRO M2 (RETINA)
-   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -31,13 +22,13 @@
 }
 
 body {
-    /* Hệ thống Font Apple & Hệ điều hành hiện đại */
+
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-color);
     background: var(--bg-body);
     line-height: 1.5;
     
-    /* Ép xung hiển thị nét chữ trên màn hình độ phân giải cao */
+  
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -49,9 +40,6 @@ body {
     margin: auto;
 }
 
-/* ==========================================================================
-   3. TÁI CẤU TRÚC HEADER & TÌM KIẾM
-   ========================================================================== */
 .header-wrapper {
     position: sticky;
     top: 0;
@@ -118,12 +106,12 @@ body {
 }
 
 .header-content {
-    display: flex;               /* chuyển flexbox */
+    display: flex;               
     align-items: center;
-    justify-content: space-between; /* phân bổ đều */
-    gap: 20px;                  /* khoảng cách giữa các phần */
+    justify-content: space-between; 
+    gap: 20px;                  
     width: 100%;
-    padding: 0 15px;            /* đệm 2 bên để không sát mép */
+    padding: 0 15px;            
 }
 
 .logo h2 {
@@ -244,9 +232,7 @@ body {
     line-height: 1.2;
     white-space: nowrap; 
 }
-/* ==========================================================================
-   4. DROPDOWN CHUYÊN NGHIỆP & OVERLAY MỜ KÍNH
-   ========================================================================== */
+
 .dropdown-wrapper {
     position: relative;
     display: flex;
@@ -256,13 +242,13 @@ body {
 
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 5px); /* Áp sát Header */
+    top: calc(100% + 5px); 
     left: 0;
     width: 260px;
     background: #ffffff;
     border-radius: 12px;
-    border: 1px solid #eee; /* Viền mờ */
-    box-shadow: var(--shadow-dropdown); /* Bóng đổ đa tầng */
+    border: 1px solid #eee; 
+    box-shadow: var(--shadow-dropdown); 
     padding: 8px 0;
     
     opacity: 0;
@@ -292,15 +278,15 @@ body {
 .dropdown-menu li:hover { background: #f8fafc; color: var(--main-color); }
 .dropdown-menu li:hover i { color: var(--main-color); }
 
-/* Overlay Background với hiệu ứng mờ kính (Glassmorphism) */
+
 .overlay {
     position: fixed;
-    top: 64px; /* Chỉ che phần dưới Header */
+    top: 64px; 
     left: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(4px); /* Làm mờ nội dung bên dưới */
+    backdrop-filter: blur(4px); 
     -webkit-backdrop-filter: blur(4px);
     z-index: 900;
     
@@ -313,12 +299,9 @@ body {
     visibility: visible;
 }
 
-/* ==========================================================================
-   5. HỆ THỐNG BADGE & ANIMATION
-   ========================================================================== */
 .cart-btn { position: relative; text-decoration: none; }
 
-/* Badge Vàng Tươi - Đỏ Đậm */
+
 .cart-btn .badge {
     position: absolute;
     top: 2px;
@@ -332,7 +315,7 @@ body {
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Animation Rung Giỏ Hàng (Lắc nhẹ theo trục Z) */
+
 @keyframes shakeCart {
     0% { transform: rotate(0deg) scale(1); }
     20% { transform: rotate(-10deg) scale(1.1); }
@@ -344,5 +327,5 @@ body {
 
 .cart-shake i {
     animation: shakeCart 0.5s cubic-bezier(.36,.07,.19,.97) both;
-    color: #ffde59; /* Chớp màu vàng rực khi thêm hàng */
+    color: #ffde59; 
 }

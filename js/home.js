@@ -1,4 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const btnHeaderCat = document.getElementById('btn-header-category');
+    const headerDropdown = document.getElementById('header-dropdown');
+    const pageOverlay = document.getElementById('page-overlay');
+
+    if (btnHeaderCat && headerDropdown && pageOverlay) {
+        btnHeaderCat.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            headerDropdown.classList.toggle('show');
+            pageOverlay.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!headerDropdown.contains(e.target) && !btnHeaderCat.contains(e.target)) {
+                if (headerDropdown.classList.contains('show')) {
+                    headerDropdown.classList.remove('show');
+                    pageOverlay.classList.remove('active');
+                    document.body.classList.remove('no-scroll');
+                }
+            }
+        });
+    }
+    
     const menuWrapper = document.getElementById('menu-wrapper');
     const overlay = document.getElementById('page-overlay');
 

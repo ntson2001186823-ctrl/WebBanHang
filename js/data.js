@@ -14,7 +14,7 @@ const products = [
     {
         id: 2,
         name: "iPhone 17 Pro Max 256GB",
-        category: "phone",
+        category: "Điện thoại",
         price: 25000000,
         img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner3.png?raw=true",
         desc: "Siêu phẩm Apple với chip xử lý mới nhất.",
@@ -57,7 +57,7 @@ const products = [
     {
         id: 6,
         name: "Samsung Galaxy S24 Ultra",
-        category: "phone",
+        category: "Điện thoại",
         price: 29990000,
         img: "https://github.com/ntson2001186823-ctrl/WebBanHang/blob/main/images/banner3.png?raw=true",
         desc: "Camera 200MP, hỗ trợ AI thông minh.",
