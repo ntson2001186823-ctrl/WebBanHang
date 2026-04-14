@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin & Chính sách - TechStore</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/info.css">
+</head>
+<body style="background-color: #f4f6f8;">
+
+<header class="header-wrapper">
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-left-marquee">
+                <i class="fas fa-bullhorn"></i>
+                <marquee behavior="scroll" direction="left" scrollamount="5">
+                    🔥 iPhone 15 Pro Max giảm ngay 2 triệu đồng - Thu cũ đổi mới trợ giá đến 3 triệu - Trả góp 0% lãi suất 🔥
+                </marquee>
+            </div>
+            <div class="top-right-links">
+                <a href="#"><i class="fas fa-newspaper"></i> Bản tin</a>
+                <a href="#"><i class="fas fa-store"></i> Cửa hàng</a>
+                <a href="#"><i class="fas fa-truck"></i> Tra cứu</a>
+                <a href="#"><i class="fas fa-user-shield"></i> Smember</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <div class="container header-content" style="position: relative; height: 100%;"> 
+            <div class="logo">
+                <h2 onclick="location.href='index.html'" style="cursor:pointer">TechStore</h2>
+            </div>
+            
+            <button class="btn-header" id="btn-header-category">
+                <i class="fas fa-bars"></i>
+                <span>Danh mục</span>
+            </button>
+            
+            <div class="search-wrapper">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Bạn muốn mua gì hôm nay?">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                    <div class="action-item" onclick="location.href='tel:18002097'">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>1800.2097</span>
+                    </div>
+                <a href="cart.html" class="cart-btn action-item">
+                    <div class="cart-icon-wrapper">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="badge">0</span>
+                    </div>
+                    <span>Giỏ hàng</span>
+                </a>
+                <div class="action-item">
+                    <i class="fas fa-user-circle"> </i>
+                    <span>Đăng nhập</span>
+                </div>
+            </div>
+
+            <aside class="sidebar-menu header-dropdown" id="header-dropdown">
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="filterByCategory('Điện thoại')"><i class="fas fa-mobile-alt"></i><span>Điện thoại</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="filterByCategory('tablet')"><i class="fas fa-tablet-alt"></i><span>Tablet</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="filterByCategory('laptop')"><i class="fas fa-laptop"></i><span>Laptop</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="filterByCategory('audio')"><i class="fas fa-headphones"></i><span>Âm thanh</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="filterByCategory('accessory')"><i class="fas fa-plug"></i><span>Phụ kiện</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="filterByCategory('all')"><i class="fas fa-border-all"></i><span>Sản phẩm nổi bật</span></a></li>
+                </ul>
+            </aside>
+
+        </div>
+    </div>
+</header>
+
+<main class="main-content container">
+    <div class="breadcrumb-nav">
+        <a href="index.html" class="btn-breadcrumb">Trang chủ</a>
+        <span class="sep"><i class="fas fa-chevron-right"></i></span>
+        <span id="current-breadcrumb" class="btn-breadcrumb active">Giới thiệu công ty</span>
+    </div>
+
+    <div class="info-container">
+        <aside class="info-sidebar">
+            <h3>Danh mục chính sách</h3>
+            <ul id="info-menu">
+                <li onclick="changeContent('Giới thiệu về công ty')">Giới thiệu về công ty</li>
+                <li onclick="changeContent('Khách hàng Doanh nghiệp (B2B)')">Khách hàng Doanh nghiệp (B2B)</li>
+                <li onclick="changeContent('Ưu đãi dành cho giáo dục')">Ưu đãi dành cho giáo dục</li>
+                <li onclick="changeContent('Danh sách cửa hàng')">Danh sách cửa hàng</li>
+                <li onclick="changeContent('Chính sách bảo hành')">Chính sách bảo hành</li>
+                <li onclick="changeContent('Chính sách bán hàng')">Chính sách bán hàng</li>
+                <li onclick="changeContent('Chính sách bảo mật')">Chính sách bảo mật</li>
+                <li onclick="changeContent('Chính sách kiểm hàng')">Chính sách kiểm hàng</li>
+</ul>
+        </aside>
+
+        <article class="info-content">
+            <h1 id="main-title">Tiêu đề bài viết</h1>
+            <div id="main-body" class="content-body">
+                </div>
+        </article>
+    </div>
+</main>
+
+<footer style="margin-top: 50px; padding: 20px; text-align: center; color: #94a3b8; font-size: 13px;">
+    © 2026 TechStore - Chăm sóc khách hàng: 1800.2097
+</footer>
+
+<script>
+    const pageData = {
+    "Giới thiệu về công ty": "<h3>Giới thiệu chung</h3><p>TechStore là hệ thống bán lẻ các sản phẩm công nghệ chính hãng hàng đầu tại Việt Nam. Chúng tôi cam kết mang đến những sản phẩm chất lượng nhất với mức giá tốt nhất thị trường.</p>",
+    
+    "Khách hàng Doanh nghiệp (B2B)": "<h3>Giải pháp B2B</h3><p>Chúng tôi cung cấp các gói giải pháp công nghệ toàn diện và mức chiết khấu cực kỳ ưu đãi dành riêng cho các khách hàng doanh nghiệp mua số lượng lớn.</p>",
+    
+    "Ưu đãi dành cho giáo dục": "<h3>Đồng hành cùng Giáo dục</h3><p>Học sinh, Sinh viên và Giáo viên sẽ luôn nhận được các ưu đãi giảm giá độc quyền từ 5% - 10% khi xuất trình thẻ hợp lệ tại hệ thống TechStore.</p>",
+    
+    "Danh sách cửa hàng": "<h3>Hệ thống toàn quốc</h3><p>TechStore hiện đã có 2 chi nhánh lớn ở Tp. HCM và Hà Nội, luôn sẵn sàng phục vụ quý khách ở bất cứ đâu.</p>",
+
+    "Chính sách bảo hành": "<h3>Chế độ bảo hành</h3><p>Mọi sản phẩm bán ra đều được bảo hành chính hãng từ 12-24 tháng. Hỗ trợ 1 đổi 1 trong 30 ngày đầu tiên nếu máy có lỗi phần cứng từ nhà sản xuất.</p>",
+    
+    "Chính sách bán hàng": "<h3>Cam kết chất lượng</h3><p>100% hàng hóa nguyên seal, chính hãng, xuất hóa đơn đầy đủ. Hỗ trợ nhiều phương thức thanh toán linh hoạt và trả góp 0%.</p>",
+    
+    "Chính sách bảo mật": "<h3>Bảo vệ thông tin</h3><p>Chúng tôi cam kết bảo mật tuyệt đối thông tin cá nhân của khách hàng. Dữ liệu chỉ được sử dụng cho mục đích giao hàng và hỗ trợ hậu mãi.</p>",
+    
+    "Chính sách kiểm hàng": "<h3>Quyền lợi khi nhận hàng</h3><p>Khách hàng được quyền đồng kiểm (kiểm tra ngoại quan, seal, phụ kiện) cùng nhân viên giao hàng trước khi tiến hành thanh toán.</p>"
+};
+
+    function changeContent(name) {
+        document.getElementById('main-title').innerText = name;
+        document.getElementById('current-breadcrumb').innerText = name;
+        document.getElementById('main-body').innerHTML = pageData[name] || "Nội dung đang cập nhật...";
+
+       
+        const menuItems = document.querySelectorAll('#info-menu li');
+        menuItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.innerText === name) item.classList.add('active');
+        });
+    }
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        let savedPage = localStorage.getItem("breadcrumbName") || "Giới thiệu về công ty";
+        changeContent(savedPage);
+    });
+</script>
+
+</body>
+</html>

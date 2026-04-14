@@ -1,5 +1,4 @@
 :root {
-    /* Màu sắc thương hiệu */
     --main-color: #d70018;       
     --dark-red: #b00012;         
     --text-color: #333333;      
@@ -329,3 +328,57 @@ body {
     animation: shakeCart 0.5s cubic-bezier(.36,.07,.19,.97) both;
     color: #ffde59; 
 }
+
+.login-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px); 
+    z-index: 3000;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.login-modal {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.9); 
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 16px;
+    z-index: 3001;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.login-overlay.active { opacity: 1; visibility: visible; }
+.login-modal.active { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+
+.login-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.login-header h3 { margin: 0; font-size: 18px; color: #333; font-weight: 800; }
+.close-btn { background: none; border: none; font-size: 20px; cursor: pointer; color: #94a3b8; transition: 0.2s; }
+.close-btn:hover { color: #d70018; transform: rotate(90deg); }
+
+.login-body { padding: 25px 20px; }
+.input-group { margin-bottom: 15px; }
+.input-group label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 600; color: #475569; }
+.input-group input { width: 100%; padding: 12px 15px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none; transition: 0.2s; }
+.input-group input:focus { border-color: #d70018; box-shadow: 0 0 0 3px rgba(215, 0, 24, 0.1); }
+
+.login-options { display: flex; justify-content: flex-end; margin-bottom: 20px; }
+.forgot-pass { font-size: 13px; color: #d70018; text-decoration: none; font-weight: 600; }
+.forgot-pass:hover { text-decoration: underline; }
+
+.btn-submit-login { width: 100%; background: #d70018; color: #fff; border: none; padding: 12px; border-radius: 8px; font-size: 15px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+.btn-submit-login:hover { background: #b00012; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(215, 0, 24, 0.2); }
+
+.login-footer { text-align: center; margin-top: 20px; font-size: 14px; color: #64748b;}
+.login-footer a { color: #d70018; font-weight: 700; text-decoration: none; }
+.login-footer a:hover { text-decoration: underline; }

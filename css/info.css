@@ -1,0 +1,137 @@
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn-breadcrumb {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-breadcrumb:hover {
+    background: #cbd5e1;
+}
+
+.btn-breadcrumb.active {
+    background: #d70018; 
+    color: #fff;
+}
+
+.breadcrumb-nav .sep {
+    font-size: 10px;
+    color: #94a3b8;
+}
+
+
+.info-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start; 
+}
+
+
+.info-sidebar {
+    width: 260px;
+    flex-shrink: 0; 
+    background: #ffffff; 
+    border-radius: 12px;
+    padding: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.info-sidebar h3 {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 15px;
+    padding-left: 20px;
+    font-weight: 800;
+}
+
+.info-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info-sidebar li {
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #444;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    background: transparent;
+    font-weight: 500;
+}
+
+
+.info-sidebar li:hover {
+    color: #d70018;
+    background-color: #fdf2f2;
+}
+
+.info-sidebar li.active {
+    color: #d70018;
+    font-weight: 700;
+    border-left: 3px solid #d70018;
+    background: linear-gradient(to right, #fdf2f2, transparent);
+}
+
+.info-content {
+    flex: 1; 
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    min-height: 500px;
+}
+
+.info-content h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+.content-body h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #d70018; 
+    margin: 25px 0 10px;
+}
+
+.content-body p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.content-body ul {
+    margin-bottom: 15px;
+    padding-left: 20px;
+}
+
+.content-body li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #4b5563;
+    margin-bottom: 8px;
+}
+
+.content-body strong {
+    color: #333;
+    font-weight: 700;
+}

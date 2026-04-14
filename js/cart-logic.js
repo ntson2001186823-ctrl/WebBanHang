@@ -2,7 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Lưu trữ các DOM Elements thường dùng
+   
     const DOM = {
         cartBody: document.getElementById('cart-body'),
         emptyMsg: document.getElementById('empty-cart-msg'),
@@ -14,14 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const SHIPPING_FEE = 30000;
 
-    // 2. Hàm định dạng tiền tệ Việt Nam
     const formatMoney = (amount) => amount.toLocaleString('vi-VN') + 'đ';
 
-    // 3. Hàm Render chính (Style Minimalism)
+   
     const renderCart = () => {
         const cart = window.cartSystem.getCart();
 
-        // Xử lý UI khi giỏ hàng trống
+        
         if (cart.length === 0) {
             DOM.emptyMsg.classList.remove('hidden');
             if (DOM.cartTable) DOM.cartTable.classList.add('hidden');
@@ -36,14 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Hiện bảng giỏ hàng
+       
         DOM.emptyMsg.classList.add('hidden');
         if (DOM.cartTable) DOM.cartTable.classList.remove('hidden');
 
         let htmlContent = '';
         let subtotalAmount = 0;
 
-        // Duyệt qua từng sản phẩm để tạo HTML
         cart.forEach(item => {
             const itemTotal = item.price * item.quantity;
             subtotalAmount += itemTotal;
@@ -84,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSummary(subtotalAmount);
     };
 
-    // 4. Hàm cập nhật Sidebar tính tiền
     const updateSummary = (subtotal) => {
         if (!DOM.subtotal || !DOM.finalTotal) return;
         
@@ -97,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 5. Đóng gói các hàm xử lý sự kiện vào Object toàn cục
     window.cartUI = {
         handleQty: (id, newQty) => {
             if (newQty < 1) {
@@ -124,16 +120,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Giỏ hàng đang trống!');
                 return;
             }
-            // Chuyển hướng thẳng sang trang thanh toán
+            
             window.location.href = 'checkout.html';
         }
-    }; // <-- Lỗi của Sơn nằm ở đây (thiếu dấu ngoặc nhọn này)
+    }; 
 
-    // 6. Gắn sự kiện cho nút Thanh toán
+    
     if (DOM.checkoutBtn) {
         DOM.checkoutBtn.addEventListener('click', window.cartUI.handleCheckout);
     }
 
-    // 7. Render lần đầu tiên khi mở trang
+  
     renderCart();
 });

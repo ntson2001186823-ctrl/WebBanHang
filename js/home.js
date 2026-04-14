@@ -156,6 +156,42 @@ window.viewDetail = function(id) {
 
 window.filterByCategory = function(cat) {
     const title = document.getElementById('main-title');
-    if (title) title.innerText = cat === 'all' ? "SẢN PHẨM NỔI BẬT" : "DANH MỤC: " + cat.toUpperCase();
+    
+    if (title) {
+        title.innerText = cat === 'all' ? "SẢN PHẨM NỔI BẬT" : "DANH MỤC: " + cat.toUpperCase();
+        
+        const headerOffset = 80; // Trừ hao 80px độ cao của thanh Header màu đỏ
+        const elementPosition = title.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+    
     window.renderProducts(cat);
 };
+document.addEventListener('DOMContentLoaded', function() {
+    const btnLogin = document.getElementById('btn-login');
+    const loginModal = document.getElementById('login-modal');
+    const loginOverlay = document.getElementById('login-overlay');
+    const closeLogin = document.getElementById('close-login');
+
+    if (btnLogin && loginModal) {
+        btnLogin.addEventListener('click', function() {
+            loginModal.classList.add('active');
+            loginOverlay.classList.add('active');
+        });
+
+        closeLogin.addEventListener('click', function() {
+            loginModal.classList.remove('active');
+            loginOverlay.classList.remove('active');
+        });
+
+        loginOverlay.addEventListener('click', function() {
+            loginModal.classList.remove('active');
+            loginOverlay.classList.remove('active');
+        });
+    }
+});

@@ -495,26 +495,24 @@
     margin: 0;
     background: #fff;
 }
-
-.promo-group-list li {
-    border-bottom: 1px solid #f1f1f1;
-}
-
-.promo-group-list li:last-child {
-    border-bottom: none;
-}
-
 .promo-group-list li a {
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 10px 8px;
-    text-decoration: none;
+    padding: 10px 10px; 
     color: #333;
     font-weight: 500;
-    font-size: 13px;
-    transition: var(--transition-fast);
-   
+    text-decoration: none;
+    font-size: 13px;  
+    border: none !important; 
+    box-shadow: none !important;
+    
+    transition: all 0.2s ease;
+    border-radius: 8px;
+}
+
+.promo-group-list li {
+    border: none !important; 
 }
 
 .promo-group-list li a i {
@@ -563,7 +561,6 @@
     margin-bottom: 15px;
 }
 
-/* Định dạng danh sách link */
 .footer-column ul {
     list-style: none;
     padding: 0;

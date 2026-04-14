@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/home.css">
 </head>
 <body class="retina-ready">
-
 <div class="overlay" id="page-overlay"></div>
 
 <header class="header-wrapper">
@@ -49,10 +48,10 @@
             </div>
             
             <div class="header-right">
-                <div class="action-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>1800.2097</span>
-                </div>
+                    <div class="action-item" onclick="location.href='tel:18002097'">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>1800.2097</span>
+                    </div>
                 <a href="cart.html" class="cart-btn action-item">
                     <div class="cart-icon-wrapper">
                         <i class="fa-solid fa-cart-shopping"></i>
@@ -60,8 +59,8 @@
                     </div>
                     <span>Giỏ hàng</span>
                 </a>
-                <div class="action-item">
-                    <i class="fas fa-user-circle"> </i>
+                <div class="action-item" id="btn-login" style="cursor: pointer;">
+                     <i class="fas fa-user-circle"> </i>
                     <span>Đăng nhập</span>
                 </div>
             </div>
@@ -73,7 +72,7 @@
                     <li><a href="javascript:void(0)" onclick="filterByCategory('laptop')"><i class="fas fa-laptop"></i><span>Laptop</span></a></li>
                     <li><a href="javascript:void(0)" onclick="filterByCategory('audio')"><i class="fas fa-headphones"></i><span>Âm thanh</span></a></li>
                     <li><a href="javascript:void(0)" onclick="filterByCategory('accessory')"><i class="fas fa-plug"></i><span>Phụ kiện</span></a></li>
-                    <li><a href="javascript:void(0)" onclick="filterByCategory('all')"><i class="fas fa-border-all"></i><span>Tất cả</span></a></li>
+                    <li><a href="javascript:void(0)" onclick="filterByCategory('all')"><i class="fas fa-border-all"></i><span>Sản phẩm nổi bật</span></a></li>
                 </ul>
             </aside>
 
@@ -90,7 +89,7 @@
                 <li><a href="javascript:void(0)" onclick="filterByCategory('laptop')"><i class="fas fa-laptop"></i><span>Laptop</span></a></li>
                 <li><a href="javascript:void(0)" onclick="filterByCategory('audio')"><i class="fas fa-headphones"></i><span>Âm thanh</span></a></li>
                 <li><a href="javascript:void(0)" onclick="filterByCategory('accessory')"><i class="fas fa-plug"></i><span>Phụ kiện</span></a></li>
-                <li><a href="javascript:void(0)" onclick="filterByCategory('all')"><i class="fas fa-border-all"></i><span>Tất cả</span></a></li>
+                <li><a href="javascript:void(0)" onclick="filterByCategory('all')"><i class="fas fa-border-all"></i><span>Sản phẩm nổi bật</span></a></li>
             </ul>
         </aside>
         
@@ -210,25 +209,24 @@
 <footer class="footer">
     <div class="container footer-content">
         <div class="footer-column">
-            <h4>Về chúng tôi</h4>
-            <ul>
-                <li><a href="#">Giới thiệu về công ty</a></li>
-                <li><a href="#">Khách hàng Doanh nghiệp (B2B)</a></li>
-                <li><a href="#">Ưu đãi dành cho giáo dục</a></li>
-                <li><a href="#">Danh sách cửa hàng</a></li>
-            </ul>
-        </div>
+    <h4>Về chúng tôi</h4>
+    <ul>
+        <li><a href="javascript:void(0)" onclick="localStorage.setItem('breadcrumbName', 'Giới thiệu về công ty'); window.location.href='info.html'">Giới thiệu về công ty</a></li>
+        <li><a href="javascript:void(0)" onclick="localStorage.setItem('breadcrumbName', 'Khách hàng Doanh nghiệp (B2B)'); window.location.href='info.html'">Khách hàng Doanh nghiệp (B2B)</a></li>
+        <li><a href="javascript:void(0)" onclick="localStorage.setItem('breadcrumbName', 'Ưu đãi dành cho giáo dục'); window.location.href='info.html'">Ưu đãi dành cho giáo dục</a></li>
+        <li><a href="javascript:void(0)" onclick="localStorage.setItem('breadcrumbName', 'Danh sách cửa hàng'); window.location.href='info.html'">Danh sách cửa hàng</a></li>
+    </ul>
+</div>
 
-        <div class="footer-column">
-            <h4>Chính sách</h4>
-            <ul>
-                <li><a href="#">Chính sách bảo hành</a></li>
-                <li><a href="#">Chính sách bán hàng</a></li>
-                <li><a href="#">Chính sách bảo mật</a></li>
-                <li><a href="#">Chính sách kiểm hàng</a></li>
-                <li><a href="#">Trung tâm bảo hành Apple tại Việt Nam</a></li>
-            </ul>
-        </div>
+<div class="footer-column">
+    <h4>Chính sách</h4>
+    <ul>
+        <li><a href="javascript:void(0)" onclick="localStorage.setItem('breadcrumbName', 'Chính sách bảo hành'); window.location.href='info.html'">Chính sách bảo hành</a></li>
+        <li><a href="javascript:void(0)" onclick="localStorage.setItem('breadcrumbName', 'Chính sách bán hàng'); window.location.href='info.html'">Chính sách bán hàng</a></li>
+        <li><a href="javascript:void(0)" onclick="localStorage.setItem('breadcrumbName', 'Chính sách bảo mật'); window.location.href='info.html'">Chính sách bảo mật</a></li>
+        <li><a href="javascript:void(0)" onclick="localStorage.setItem('breadcrumbName', 'Chính sách kiểm hàng'); window.location.href='info.html'">Chính sách kiểm hàng</a></li>
+    </ul>
+</div>
 
         <div class="footer-column">
             <h4>Tổng đài hỗ trợ (Miễn phí)</h4>
@@ -255,5 +253,31 @@
 <script src="js/storage.js"></script>
 <script src="js/home.js"></script>
 
+<div class="login-overlay" id="login-overlay"></div>
+<div class="login-modal" id="login-modal">
+    <div class="login-header">
+        <h3>Đăng nhập tài khoản</h3>
+        <button class="close-btn" id="close-login"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="login-body">
+        <form id="login-form">
+            <div class="input-group">
+                <label>Email hoặc Số điện thoại</label>
+                <input type="text" placeholder="Nhập email hoặc số điện thoại..." required>
+            </div>
+            <div class="input-group">
+                <label>Mật khẩu</label>
+                <input type="password" placeholder="Nhập mật khẩu..." required>
+            </div>
+            <div class="login-options">
+                <a href="#" class="forgot-pass">Quên mật khẩu?</a>
+            </div>
+            <button type="button" class="btn-submit-login">Đăng nhập</button>
+        </form>
+        <div class="login-footer">
+            <p>Bạn chưa có tài khoản? <a href="#">Đăng ký ngay</a></p>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -15,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formatMoney = (amount) => amount.toLocaleString('vi-VN') + 'đ';
 
-    // === 2. HÀM VẼ ĐƠN HÀNG ===
     const renderCheckoutItems = () => {
     const itemsContainer = document.getElementById('checkout-items');
-    // Tui sẽ tìm cả class checkout-sidebar HOẶC checkout-summary để đổ tiền vào
     const sidebar = document.querySelector('.checkout-sidebar') || document.querySelector('.checkout-summary') || document.querySelector('aside');
 
     if (!itemsContainer) return;
@@ -45,16 +43,13 @@ document.addEventListener('DOMContentLoaded', () => {
     itemsContainer.innerHTML = html;
     const finalTotal = subtotal + SHIPPING_FEE;
 
-    // Kiểm tra và tạo hộp tính tiền
     let calcBox = document.getElementById('calc-box');
     if (!calcBox) {
         calcBox = document.createElement('div');
         calcBox.id = 'calc-box';
-        // Chèn nó vào ngay sau danh sách sản phẩm
         itemsContainer.insertAdjacentElement('afterend', calcBox);
     }
 
-    // Đổ nội dung vào hộp tính tiền với style cực mạnh
     calcBox.innerHTML = `
         <div style="margin-top: 20px; padding: 20px; background: #ffffff; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #f0f0f0;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 14px; color: #666;">
@@ -75,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderCheckoutItems();
 
-    // === 3. XỬ LÝ THANH TOÁN (MÃ QR) ===
     const checkoutForm = document.getElementById('checkout-form');
     if (checkoutForm) {
         checkoutForm.addEventListener('submit', (e) => {
@@ -120,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // === 4. LOGIC KẾT THÚC ĐƠN HÀNG ===
     const confirmBtn = document.getElementById('confirm-paid-btn');
     if (confirmBtn) {
         confirmBtn.onclick = () => {

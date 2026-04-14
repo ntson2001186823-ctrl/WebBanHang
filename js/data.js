@@ -1,4 +1,3 @@
-// File: js/data.js
 const products = [
     {
         id: 1,
@@ -119,7 +118,6 @@ const products = [
         variants: ["Tiêu chuẩn", "Combo chuyên nghiệp"],
         colors: ["Đen"]
     },
-    // --- 5 SẢN PHẨM MỚI BỔ SUNG ---
     { 
         id: 12, 
         name: "Loa Marshall Stanmore III", 

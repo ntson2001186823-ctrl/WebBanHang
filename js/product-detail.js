@@ -1,4 +1,3 @@
-// 1. Lấy ID sản phẩm từ localStorage
 const productId = localStorage.getItem("productId");
 const foundProduct = products.find(p => p.id == productId);
 const detailContainer = document.getElementById("product-content");
@@ -55,22 +54,18 @@ window.selectOption = function(element, type) {
     element.classList.add('active');
 };
 
-// GIỎ HÀNG CHÍNH ---
 
 window.addToCartAndRedirect = function() {
-    // 1. Kiểm tra xem hệ thống giỏ hàng đã sẵn sàng chưa
     if (!window.cartSystem) {
         console.error("Lỗi: Không tìm thấy cartSystem. Hãy kiểm tra file storage.js");
         return;
     }
 
-    // 2. Lấy các tùy chọn người dùng đã chọn (active)
     const selectedOptions = document.querySelectorAll('.option-item.active');
     let details = [];
     selectedOptions.forEach(opt => details.push(opt.innerText.trim()));
     const selectionString = details.join(" - "); 
 
-    // 3. Sử dụng hệ thống cartSystem để thêm hàng
 
     window.cartSystem.addItem({
         id: foundProduct.id,
@@ -81,7 +76,6 @@ window.addToCartAndRedirect = function() {
         selection: selectionString 
     });
 
-    // 4. Thông báo và chuyển hướng
     alert(`Đã thêm ${foundProduct.name} (${selectionString}) vào giỏ hàng!`);
     
     window.location.href = "index.html"; 
