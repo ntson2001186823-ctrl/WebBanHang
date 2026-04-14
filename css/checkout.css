@@ -1,17 +1,12 @@
-/* ==========================================================================
-   CHECKOUT - STYLE ĐỒNG BỘ TECHSTORE (CLEAN CODE)
-   ========================================================================== */
-
-/* --- 1. BIẾN MÀU SẮC (VARIABLES) --- */
 :root {
-    --main-color: #d70018;         /* Đỏ TechStore */
-    --main-color-hover: #a50012;   /* Đỏ đậm khi hover */
-    --bg-body: #f4f6f8;            /* Xám nhạt nền web */
-    --text-main: #333333;          /* Đen chữ chính */
-    --text-muted: #64748b;         /* Xám chữ phụ */
-    --border-color: #e2e8f0;       /* Viền nhạt */
-    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.05); /* Bóng đổ cho khung */
-    --shadow-btn: 0 6px 15px rgba(215, 0, 24, 0.25); /* Bóng đổ cho nút */
+    --main-color: #d70018;         
+    --main-color-hover: #a50012;   
+    --bg-body: #f4f6f8;            
+    --text-main: #333333;          
+    --text-muted: #64748b;         
+    --border-color: #e2e8f0;       
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.05); 
+    --shadow-btn: 0 6px 15px rgba(215, 0, 24, 0.25); 
     --transition-fast: 0.3s ease;
 }
 
@@ -32,7 +27,6 @@ body {
     gap: 30px;
 }
 
-/* Header mỏng gọn */
 .checkout-header {
     background: #ffffff;
     padding: 15px 0;
@@ -61,7 +55,6 @@ body {
     font-weight: 600;
 }
 
-/* --- 4. KHUNG NỘI DUNG (BOX MODEL) --- */
 .checkout-form-section, 
 .checkout-sidebar {
     background: #ffffff;
@@ -81,7 +74,6 @@ body {
     padding-bottom: 5px;
 }
 
-/* --- 5. FORM & INPUTS --- */
 .form-group {
     margin-bottom: 20px;
 }
@@ -170,7 +162,6 @@ body {
     background: var(--main-color);
 }
 
-/* --- 6. NÚT BẤM (BUTTONS) --- */
 .btn-place-order, 
 .btn-confirm {
     width: 100%;
@@ -212,7 +203,7 @@ body {
     color: var(--main-color);
 }
 
-/* --- 7. MODAL thanh toán*/
+
 .modal {
     position: fixed;
     top: 0;
@@ -302,7 +293,7 @@ body {
     font-size: 14px;
 }
 
-/* --- 8. RESPONSIVE DÀNH CHO ĐIỆN THOẠI --- */
+
 @media (max-width: 768px) {
     .checkout-layout {
         grid-template-columns: 1fr; 

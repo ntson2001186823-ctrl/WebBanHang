@@ -211,8 +211,8 @@
 .quick-categories { display: flex; justify-content: space-between; gap: 8px; margin: 20px auto; }
 .cat-item { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; width: 85px; }
 .icon-circle {
-    width: 45px; height: 45px; /* Thu nhỏ */
-    background: white; border-radius: 16px; /* Bo góc Squircle hiện đại */
+    width: 45px; height: 45px; 
+    background: white; border-radius: 16px; 
     display: flex; justify-content: center; align-items: center;
     box-shadow: var(--shadow-sm); font-size: 20px; color: #444; transition: var(--transition-smooth);
 }
@@ -238,7 +238,7 @@
     font-style: italic; font-weight: 900; font-size: 24px; display: flex; align-items: center; gap: 8px; letter-spacing: -0.5px; flex: 1;
     min-width: 0; }
 
-/* Tia sét chớp tắt */
+
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 .fa-blink { animation: blink 1s infinite; color: #ffde59; }
 
@@ -250,10 +250,10 @@
     align-items: center; gap: 6px;  white-space: nowrap; }
 .time-box {
     background: #111; color: white;
-    width: 30px; height: 30px; border-radius: 6px; /* Vuông vức */
+    width: 30px; height: 30px; border-radius: 6px; 
     display: flex; justify-content: center; align-items: center; font-size: 14px; font-weight: 600;
 }
-#fs-product-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; } /* Ép chuẩn 5 thẻ/hàng */
+#fs-product-list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; } 
 
 
 .product-box { background: #fff; border-radius: 16px; padding: 15px; margin: 20px auto; box-shadow: var(--shadow-sm); }
