@@ -194,7 +194,4 @@ const products = [
         variants: [ "256GB"],
         colors: ["Đen", "Bạc"]
     }
-
-
-
 ];

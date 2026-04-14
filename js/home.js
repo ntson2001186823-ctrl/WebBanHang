@@ -195,3 +195,39 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+window.renderSuggestedProducts = function() {
+    const suggestedContainer = document.getElementById('suggested-product-list');
+    
+    const data = (typeof products !== 'undefined') ? products : (window.products || []);
+    if (!suggestedContainer || data.length === 0) return;
+    const suggestedItems = data.slice(-5); 
+
+    let html = '';
+    suggestedItems.forEach(p => {
+        const badgeHTML = p.discountLabel ? `<span class="discount-badge">${p.discountLabel}</span>` : '';
+        const progressHTML = p.isFlashSale ? `
+            <div class="progress-container">
+                <div class="progress-fill" style="width: ${p.soldPercent || 70}%;"></div>
+                <span class="progress-text">Đã bán ${p.soldPercent || 70}%</span>
+            </div>` : '';
+        html += `
+            <div class="product-card">
+                <div class="product-info" onclick="window.viewDetail(${p.id})" style="cursor: pointer;">
+                    ${badgeHTML}
+                    <img src="${p.img}" alt="${p.name}">
+                    <h3>${p.name}</h3>
+                    <p class="price">${p.price.toLocaleString('vi-VN')}đ</p>
+                    ${progressHTML}
+                </div>
+                <button class="btn-add-cart" onclick="window.handleCardClick(${p.id}, '${p.name}', ${p.price}, '${p.img}')">
+                    Thêm vào giỏ
+                </button>
+            </div>
+        `;
+    });
+
+    suggestedContainer.innerHTML = html;
+};
+document.addEventListener('DOMContentLoaded', function() {
+    window.renderSuggestedProducts();
+});
