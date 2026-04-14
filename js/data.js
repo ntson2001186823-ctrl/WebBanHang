@@ -24,7 +24,7 @@ const products = [
     {
         id: 3,
         name: "Tai nghe Sony WH-1000XM5",
-        category: "audio",
+        category: "Âm thanh",
         price: 6500000,
         img: "images/hinh3.jpg",
         desc: "Chống ồn chủ động đỉnh cao.",
@@ -35,7 +35,7 @@ const products = [
     {
         id: 4,
         name: "Chuột Gaming Logitech G Pro",
-        category: "accessory",
+        category: "Phụ kiện",
         price: 2500000,
         img: "images/hinh4.jpg",
         desc: "Siêu nhẹ, cảm biến HERO 25K.",
@@ -67,7 +67,7 @@ const products = [
     {
         id: 7,
         name: "Bàn phím cơ Akko 3068B",
-        category: "accessory",
+        category: "Phụ kiện",
         price: 1850000,
         img: "images/hinh7.jpg",
         desc: "Kết nối 3 chế độ, hotswap linh hoạt.",
@@ -78,7 +78,7 @@ const products = [
     {
         id: 8,
         name: "Máy ảnh Canon EOS R50",
-        category: "accessory",
+        category: "Phụ kiện",
         price: 18990000,
         img: "images/hinh8.jpg",
         desc: "Lấy nét cực nhanh, quay phim 4K.",
@@ -89,7 +89,7 @@ const products = [
     {
         id: 9,
         name: "AirPods 4",
-        category: "audio",
+        category: "Âm thanh",
         price: 3490000,
         img: "images/hinh9.jpg",
         desc: "Âm thanh không gian cá nhân hóa.",
@@ -100,7 +100,7 @@ const products = [
     {
         id: 10,
         name: "Thẻ nhớ MicroSD 128GB",
-        category: "accessory",
+        category: "Phụ kiện",
         price: 450000,
         img: "images/hinh10.jpg",
         desc: "Tốc độ đọc nhanh, bền bỉ.",
@@ -110,7 +110,7 @@ const products = [
     {
         id: 11,
         name: "Gimbal DJI RS 3 Mini",
-        category: "accessory",
+        category: "Phụ kiện",
         price: 6990000,
         img: "images/hinh11.jpg",
         desc: "Chống rung chuyên nghiệp cho máy ảnh.",
@@ -121,7 +121,7 @@ const products = [
     { 
         id: 12, 
         name: "Loa Marshall Stanmore III", 
-        category: "audio", 
+        category: "Âm thanh", 
         price: 9290000, 
         img: "images/hinh12.jpg", 
         desc: "Âm thanh sống động, thiết kế cổ điển.",
@@ -153,7 +153,7 @@ const products = [
     { 
         id: 15, 
         name: "Máy lọc không khí Xiaomi 4", 
-        category: "accessory", 
+        category: "Phụ kiện", 
         price: 3290000, 
         img: "images/hinh15.jpg", 
         desc: "Lọc bụi mịn, mang lại không khí trong lành.",
@@ -164,7 +164,7 @@ const products = [
     { 
         id: 16, 
         name: "Máy đọc sách Kindle PPW5", 
-        category: "accessory", 
+        category: "Phụ kiện", 
         price: 3850000, 
         img: "images/hinh16.jpg", 
         desc: "Màn hình e-ink không mỏi mắt, pin cực lâu.",
@@ -194,4 +194,5 @@ const products = [
         variants: [ "256GB"],
         colors: ["Đen", "Bạc"]
     }
+
 ];
