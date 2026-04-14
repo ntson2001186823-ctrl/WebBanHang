@@ -171,5 +171,30 @@ const products = [
         isFlashSale: true,
         variants: ["8GB", "16GB", "32GB (Signature)"],
         colors: ["Đen", "Xanh Diệp Lục"]
+    },
+    { 
+        id: 17, 
+        name: "iPad Air 11 inch M4 Wifi 128GB  ", 
+        category: "tablet", 
+        price: 16980000, 
+        img: "images/m4.png", 
+        desc: "Màn hình e-ink không mỏi mắt, pin cực lâu.",
+        isFlashSale: false,
+        variants: [ "128GB"],
+        colors: ["Đen", "Xám"]
+    },
+    {
+        id: 18, 
+        name: "iPad Pro chip M5 11 inch Wifi 256GB", 
+        category: "tablet", 
+        price: 28250000, 
+        img: "images/m5.png", 
+        desc: "Màn hình Ultra Retina XDR.",
+        isFlashSale: false,
+        variants: [ "256GB"],
+        colors: ["Đen", "Bạc"]
     }
+
+
+
 ];
